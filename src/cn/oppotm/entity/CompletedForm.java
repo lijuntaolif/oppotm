@@ -1,6 +1,6 @@
 package cn.oppotm.entity;
 
-public class Completedform {
+public class CompletedForm {
 	private int form_id;//  订单编号
 	private int user_id;//  用户id
 	private int good_id;// 商品编号
@@ -13,12 +13,12 @@ public class Completedform {
 	private String   name  ;//   收货人名
 	private int  phone  ;//  电话
 	
-	public Completedform() {
+	public CompletedForm() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Completedform(int form_id, int user_id, int good_id, int num, double pay, int express, String date,
+	public CompletedForm(int form_id, int user_id, int good_id, int num, double pay, int express, String date,
 			String address, int post, String name, int phone) {
 		super();
 		this.form_id = form_id;

@@ -2,7 +2,7 @@ package cn.oppotm.entity;
 
 import oracle.net.aso.d;
 
-public class Unfinishedform {
+public class UnfinishedForm {
 	private int user_id; //用户id
 	private int good_id; //商品id
 	private String  image_name; //图片id
@@ -11,12 +11,12 @@ public class Unfinishedform {
 	private int num;           //商品数量
 	private double pay;           //付款金额
 	
-	public Unfinishedform() {
+	public UnfinishedForm() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Unfinishedform(int user_id, int good_id, String image_name, String introduce, double discountedPrice,
+	public UnfinishedForm(int user_id, int good_id, String image_name, String introduce, double discountedPrice,
 			int num, double pay) {
 		super();
 		this.user_id = user_id;
