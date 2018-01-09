@@ -1,6 +1,6 @@
 package cn.oppotm.entity;
 
-import oracle.net.aso.d;
+
 
 public class UnfinishedForm {
 	private int user_id; //”√ªßid
