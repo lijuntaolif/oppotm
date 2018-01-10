@@ -1,10 +1,10 @@
 package cn.oppotm.entity;
 
 public class Image {
-	private int image_id;//Í¼Æ¬±àºÅ
-	private String image_name;//Í¼Æ¬Ãû
-	private int good_id;//ÉÌÆ·id
-	private int type;//Í¼Æ¬ÀàÐÍ
+	private int image_id;//Í¼Æ¬ï¿½ï¿½ï¿½
+	private String image_name;//Í¼Æ¬ï¿½ï¿½
+	private int good_id;//ï¿½ï¿½Æ·id
+	private int type;//ç±»åž‹
 	
 	public Image() {
 		super();

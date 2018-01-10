@@ -11,12 +11,11 @@ import cn.oppotm.dao.userDao;
 import cn.oppotm.entity.User;
 
 public class testServlet extends HttpServlet {
-
+	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		userDao userDao=new userDao();
-		User user=userDao.selectUser(1);
-		req.setAttribute("user", user);
-		req.getRequestDispatcher("test.jsp").forward(req, resp);
+		
+		req.setAttribute("user", "ni");
+		req.getRequestDispatcher("2.jsp").forward(req, resp);
 	}
 
 }
