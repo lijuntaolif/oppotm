@@ -3,13 +3,13 @@ package cn.oppotm.entity;
 
 
 public class UnfinishedForm {
-	private int user_id; //用户id
-	private int good_id; //商品id
-	private String  image_name; //图片id
-	private String introduce;// 商品介绍
-	private double discountedPrice;//折后价格
-	private int num;           //商品数量
-	private double pay;           //付款金额
+	private int user_id; //鐢ㄦ埛id
+	private int good_id; //鍟嗗搧id
+	private String  image_name; //鍥剧墖id
+	private String introduce;// 鍟嗗搧浠嬬粛
+	private double discountedPrice;//鐜颁环
+	private int num;           //鏁伴噺
+	private double pay;           //閲戦
 	
 	public UnfinishedForm() {
 		super();

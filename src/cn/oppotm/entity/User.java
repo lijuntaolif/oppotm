@@ -1,9 +1,9 @@
 package cn.oppotm.entity;
 
 public class User {
-	private int user_id;
-	private String user_name;
-	private String password;
+	private int user_id;//用户id
+	private String user_name;//用户名
+	private String password;//密码
 	
 	public User() {
 		super();

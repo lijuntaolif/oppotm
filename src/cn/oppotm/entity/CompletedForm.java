@@ -1,17 +1,17 @@
 package cn.oppotm.entity;
 
 public class CompletedForm {
-	private int form_id;//  ¶©µ¥±àºÅ
-	private int user_id;//  ÓÃ»§id
-	private int good_id;// ÉÌÆ·±àºÅ
-	private int num ;//     ÊıÁ¿
-	private double pay;//      ½ğ¶î
-	private int  express;  //¿ìµİ£¨1.Ë³·á  2.ÖĞÍ¨£©
-	private String  form_date ;// ¶©µ¥ÈÕÆÚ
-	private String   address;//  ÊÕ»õµØÖ·
-	private int   post ;//    ÓÊ±à
-	private String   name  ;//   ÊÕ»õÈËÃû
-	private int  phone  ;//  µç»°
+	private int form_id;//  è®¢å•id
+	private int user_id;//  ç”¨æˆ·id
+	private int good_id;// å•†å“id
+	private int num ;//     å•†å“æ•°é‡
+	private double pay;// æ€»é‡‘é¢
+	private int  express;  //å¿«é€’æ–¹å¼ï¼ˆ1.é¡ºä¸° 2.ä¸­é€šï¼‰
+	private String  form_date ;// è®¢å•æ—¥æœŸ
+	private String   address;//åœ°å€
+	private int  post ;// é‚®ç®± 
+	private String   name  ;//å§“å
+	private int  phone  ;// ç”µè¯
 	
 	public CompletedForm() {
 		super();

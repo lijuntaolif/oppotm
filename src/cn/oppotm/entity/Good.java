@@ -1,14 +1,14 @@
 package cn.oppotm.entity;
 
 public class Good {
-	private int good_id;//ÉÌÆ·id
-	private String good_name;//ÉÌÆ·Ãû³Æ
-	private String good_type;//ÉÌÆ·ĞÍºÅ
-	private String introduce;//ÉÌÆ·½éÉÜ
-	private double originalPrice;//´òÕÛÇ°¼Û¸ñ
-	private double discountedPrice;//´òÕÛºó¼Û¸ñ
-	private String image_name;//ÉÌÆ·Ê×¸öÍ¼Æ¬Â·¾¶
-	private int  inventory;  //¿â´æ
+	private int good_id;//å•†å“id
+	private String good_name;//å•†å“å
+	private String good_type;//å•†å“ç±»å‹
+	private String introduce;//å•†å“ä»‹ç»
+	private double originalPrice;//åŸä»·
+	private double discountedPrice;//ç°ä»·
+	private String image_name;//å›¾ç‰‡å
+	private int  inventory;  //æ•°é‡
 	
 	public Good() {
 		super();

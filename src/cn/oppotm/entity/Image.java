@@ -1,9 +1,9 @@
 package cn.oppotm.entity;
 
 public class Image {
-	private int image_id;//ͼƬ���
-	private String image_name;//ͼƬ��
-	private int good_id;//��Ʒid
+	private int image_id;//图片id
+	private String image_name;//图片名
+	private int good_id;//商品id
 	private int type;//类型
 	
 	public Image() {
