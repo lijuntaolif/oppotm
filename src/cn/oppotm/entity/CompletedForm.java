@@ -7,7 +7,7 @@ public class CompletedForm {
 	private int num ;//     数量
 	private double pay;//      金额
 	private int  express;  //快递（1.顺丰  2.中通）
-	private String  form_date ;//    订单日期
+	private String  form_date ;// 订单日期
 	private String   address;//  收货地址
 	private int   post ;//    邮编
 	private String   name  ;//   收货人名
@@ -15,7 +15,6 @@ public class CompletedForm {
 	
 	public CompletedForm() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public CompletedForm(int form_id, int user_id, int good_id, int num, double pay, int express, String form_date,

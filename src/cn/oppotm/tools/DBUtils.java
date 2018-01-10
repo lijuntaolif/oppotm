@@ -15,7 +15,7 @@ public class DBUtils {
 		Connection conn=null;
 		try {
 			Context context= new InitialContext();
-			DataSource source=(DataSource) context.lookup("java:comp/env/jndi/t68");
+			DataSource source=(DataSource)context.lookup("java:comp/env/jndi/t68");
 			conn=source.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
@@ -24,6 +24,8 @@ public class DBUtils {
 		}
 		return conn;
 	}
+	
+	
 	public static void closeAll(Connection conn,PreparedStatement pstmt,ResultSet rs){
 		if(rs!=null){
 			try {
