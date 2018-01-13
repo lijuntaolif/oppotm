@@ -9,8 +9,8 @@
 </head>
 <body>
 	<%
-		String name=(String)request.getAttribute("user");
+		User user=(User)request.getAttribute("user");
 	%>
-   姓名：<%=name%>
+   姓名：<%=user.getUser_name()%>
 </body>
 </html>

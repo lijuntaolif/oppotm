@@ -15,7 +15,7 @@ public class DBUtils {
 		Connection conn=null;
 		try {
 			Context context= new InitialContext();
-			DataSource source=(DataSource)context.lookup("java:comp/env/jndi/t68");
+			DataSource source=(DataSource)context.lookup("java:comp/env/jndi/oppotm");
 			conn=source.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
