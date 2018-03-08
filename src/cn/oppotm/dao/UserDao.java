@@ -9,7 +9,7 @@ import java.sql.SQLException;
 import cn.oppotm.entity.User;
 import cn.oppotm.tools.DBUtils;
 
-public class userDao {
+public class UserDao {
 	private Connection conn;
 	private PreparedStatement pstmt;
 	private ResultSet rs;

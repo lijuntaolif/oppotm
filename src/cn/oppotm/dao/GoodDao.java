@@ -1,5 +1,6 @@
 package cn.oppotm.dao;
 
-public class imageDao {
+public class GoodDao {
+
 
 }
