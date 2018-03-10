@@ -62,6 +62,17 @@
    		<servlet-name>account</servlet-name>
    		<url-pattern>/account</url-pattern>
    </servlet-mapping>
+   
+   <servlet>
+   		<servlet-name>DeleteCartServlet
+   		</servlet-name>
+   		<servlet-class>cn.oppotm.servlet.DeleteCartServlet
+   		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   		<servlet-name>DeleteCartServlet</servlet-name>
+   		<url-pattern>/DeleteCartServlet</url-pattern>
+   </servlet-mapping>
   
   
   <filter>

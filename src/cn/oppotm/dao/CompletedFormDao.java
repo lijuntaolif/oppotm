@@ -33,15 +33,11 @@ public class CompletedFormDao {
 			pstmt.setInt(7, completedForm.getPost());
 			pstmt.setString(8, completedForm.getName());;
 			pstmt.setString(9, completedForm.getPhone());
-			flag=pstmt.executeUpdate(sql);
+			flag=pstmt.executeUpdate();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
-		
-			
-	
-		return flag;
-		
+		return flag;	
 	}
 
 }

@@ -84,6 +84,7 @@ public class ShopCartDao {
 		conn=DBUtils.getconn();
 		String sql="insert into shopcart values(?,?)";
 		try {
+			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, user_id);
 			pstmt.setInt(2, good_id);
 			flag=pstmt.executeUpdate();
@@ -103,10 +104,12 @@ public class ShopCartDao {
 		conn=DBUtils.getconn();
 		String sql="delete from shopcart where good_id=?";
 		try {
+			pstmt=conn.prepareStatement(sql);
 			pstmt.setInt(1, good_id);
 			flag=pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
 		}
 		return flag;
 	}
