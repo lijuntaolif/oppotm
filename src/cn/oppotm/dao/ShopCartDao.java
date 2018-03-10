@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.oppotm.entity.Good;
-import cn.oppotm.entity.ShopCart;
 import cn.oppotm.tools.DBUtils;
 
 public class ShopCartDao {
@@ -74,6 +73,42 @@ public class ShopCartDao {
 		return num;
 		
 	}
-	
+	/**
+	 * 添加购物车
+	 * @param user_id
+	 * @param good_id
+	 * @return
+	 */
+	public int addCart(int user_id,int good_id){
+		int flag=0;
+		conn=DBUtils.getconn();
+		String sql="insert into shopcart values(?,?)";
+		try {
+			pstmt.setInt(1, user_id);
+			pstmt.setInt(2, good_id);
+			flag=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return flag;
+	}
+	/**
+	 * 删除购物车商品
+	 * @param good_id
+	 * @return
+	 */
+	public int deletCart(int good_id){
+		int flag=0;
+		conn=DBUtils.getconn();
+		String sql="delete from shopcart where good_id=?";
+		try {
+			pstmt.setInt(1, good_id);
+			flag=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return flag;
+	}
 
 }

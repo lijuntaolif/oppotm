@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import cn.oppotm.dao.userDao;
+import cn.oppotm.dao.UserDao;
 import cn.oppotm.entity.User;
 
 public class testServlet extends HttpServlet {

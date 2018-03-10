@@ -11,14 +11,14 @@ public class CompletedForm {
 	private String   address;//地址
 	private int  post ;// 邮箱 
 	private String   name  ;//姓名
-	private int  phone  ;// 电话
+	private String  phone  ;// 电话
 	
 	public CompletedForm() {
 		super();
 	}
 	
 	public CompletedForm(int form_id, int user_id, int good_id, int num, double pay, int express, String form_date,
-			String address, int post, String name, int phone) {
+			String address, int post, String name, String phone) {
 		super();
 		this.form_id = form_id;
 		this.user_id = user_id;
@@ -93,10 +93,10 @@ public class CompletedForm {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPhone() {
+	public String getPhone() {
 		return phone;
 	}
-	public void setPhone(int phone) {
+	public void setPhone(String phone) {
 		this.phone = phone;
 	}
 	
