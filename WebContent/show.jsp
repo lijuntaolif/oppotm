@@ -1,0 +1,1284 @@
+<%@page import="cn.oppotm.entity.Image"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="cn.oppotm.dao.ImageDao"%>
+<%@page import="cn.oppotm.entity.Good"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title></title>
+<style>
+* {
+	padding: 0 0;
+	margin: 0 auto;
+}
+.show{
+    width:1300px;
+    height:2142px;
+}
+/*顶部开始*/
+/*首页顶部top_up开始*/
+.top_up {
+	width: 1300px;
+	height: 25px;
+	background-color: #F2F2F2;
+	color: #999999;
+	font-size: 14px;
+}
+
+.top_up_left {
+	width: 700px;
+	height: 25px;
+	float: left;
+}
+
+.top_up_left ul {
+	list-style: none;
+	margin-left: 30px;
+}
+
+.top_up_left ul li {
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	margin-left: 20px;
+}
+
+.top_up_left_image {
+	float: left;
+	width: 25px;
+	height: 25px;
+}
+
+.top_up_left_text {
+	float: left;
+}
+
+.top_up_left_text a {
+	text-decoration: none;
+	color: #999999;
+}
+
+.top_up_right {
+	width: 600px;
+	height: 25px;
+	float: right;
+}
+
+.top_up_right ul {
+	list-style: none;
+}
+
+.top_up_right ul li {
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	margin-left: 20px;
+}
+/*首页顶部top_up结束*/
+/*首页顶部top_middle开始*/
+.top_middle_1 {
+	width: 1300px;
+	height: 80px;
+}
+
+.top_middle_1_in_1 {
+	width: 180px;
+	height: 50px;
+	float: left;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+
+.top_middle_1_in_2 {
+	width: 140px;
+	height: 40px;
+	float: left;
+	margin-top: 20px;
+	border-left: 1px solid #F0F0F0;
+	border-right: 1px dashed #F0F0F0;
+}
+
+.top_middle_1_in_2_up {
+	font-size: 10px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.top_middle_1_in_2_under {
+	margin-left: 10px;
+}
+
+.top_middle_1_in_3 {
+	width: 120px;
+	height: 50px;
+	float: left;
+	margin-top: 10px;
+}
+
+.top_middle_1_in_4 {
+	width: 60px;
+	height: 40px;
+	float: left;
+	margin-top: 20px;
+	border-left: 1px solid #F0F0F0;
+}
+
+.top_middle_1_in_4_up {
+	font-size: 12px;
+	color: #999999;
+	margin-left: 10px;
+}
+
+.top_middle_1_in_4_under {
+	margin-left: 10px;
+}
+
+.top_middle_1_in_5 {
+	width: 600px;
+	height: 80px;
+	float: right;
+}
+
+.sy_sousuo {
+	margin-top: 20px;
+	width: 400px;
+	height: 30px;
+	border: 3px solid #FF0036;
+	float: left;
+	margin-left: 30px;
+}
+
+.sy_button {
+	margin-top: 20px;
+	width: 80px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	background-color: #FF0036;
+	color: white;
+	font-size: 16px;
+	float: left;
+}
+
+.top_middle_2 {
+	width: 1300px;
+	height: 122px;
+	border-top: 1px solid #C8BAAA;
+	border-bottom: 1px solid #D5D5D5;
+}
+
+.top_middle_2_in_1 {
+	margin-top: 40px;
+	margin-left: 40px;
+	width: 200px;
+	height: 60px;
+	float: left;
+}
+
+.top_middle_2_in_1 a {
+	text-decoration: none;
+	color: #2C2C2C;
+	font-weight: bold;
+}
+
+.top_middle_2_in_2 {
+	margin-left: 300px;
+	margin-top: 40px;
+	width: 200px;
+	height: 60px;
+	float: left;
+}
+
+.top_middle_2_in_3 {
+	float: right;
+	margin-right: 40px;
+	margin-top: 20px;
+}
+
+.top_middle_2_in_3_left {
+	float: left;
+}
+
+.top_middle_2_in_3_right {
+	float: right;
+	margin-top: 10px;
+	color: #5D5D5D;
+	font-weight: bold;
+	font-size: 14px;
+}
+/*首页top_middle结束*/
+/*首页top_bottom开始*/
+.top_bottom {
+	width: 1300px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.top_bottom ul {
+	list-style: none;
+	width: 1300px;
+}
+
+.top_bottom ul li {
+	float: left;
+	margin-left: 50px;
+}
+
+.top_bottom a {
+	text-decoration: none;
+	color: black;
+}
+
+.top_bottom_xf {
+	left: 0;
+	top: 279px;
+	width: 1300px;
+	height: 300px;
+	background: #F5F5F5;
+	margin-top: 0;
+	margin-left:22px;
+	position: absolute;
+	z-index: 3;
+	display: none;
+	text-align: center;
+}
+
+.top_bottom_xf a {
+	text-decoration: none;
+}
+
+.top_bottom_xf_in_first {
+	width: 200px;
+	height: 240px;
+	margin-top: 30px;
+	float: left;
+	margin-left: 100px;
+}
+
+.top_bottom_xf_in {
+	width: 200px;
+	height: 240px;
+	margin-top: 30px;
+	float: left;
+	margin-left: 20px;
+}
+
+.top_bottom_xf .top_text {
+	color: #4E4E4E;
+	font-size: 18px;
+	font-family: 微软雅黑;
+	font-weight: bold;
+}
+
+.top_bottom_xf .img {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.top_bottom_xf .bottom_text {
+	color: #6E6E6E;
+}
+
+.top_bottom_xf .top_bottom_xf_in_second {
+	width: 200px;
+	height: 240px;
+	margin-top: 30px;
+	float: left;
+	margin-left: 200px;
+}
+/*首页top_bottom结束*/
+/*顶部结束*/
+/*中间开始*/
+.middle {
+	width: 950px;
+	height:1200px;
+}
+/*浏览页面左部选择栏设计开始*/
+.middle_left {
+	width: 160px;
+	float: left;
+}
+/*中间搜索栏开始 */
+.middle_sousuo {
+	width: 160px;
+	height: 160px;
+}
+
+.middle_sousuo_up {
+	width: 160px;
+	height: 30px;
+	line-height: 30px;
+	color: #666666;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F9F9F9;
+	border: 1px solid #E7E7E7;
+}
+
+.middle_sousuo_under {
+	width: 160px;
+	height: 130px;
+	border: 1px solid #EEEEEE;
+	color: #666666;
+	font-size: 14px;
+}
+
+.middle_sousuo_under_giz {
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.middle_sousuo_under_price {
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.middle_sousuo_under_button {
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.middle_sousuo_under .button {
+	width: 40px;
+	height: 20px;
+	background: #333333;
+	color: white;
+	border: 1px solid #333333;
+	border-radius: 4px;
+}
+
+.middle_sousuo_under .gjz {
+	width: 100px;
+	height: 20px;
+}
+
+.middle_sousuo_under .price {
+	width: 30px;
+	height: 20px;
+}
+/*中间搜索栏结束 */
+/*中间分类栏开始 */
+.middle_fenlei {
+	width: 160px;
+}
+
+.middle_fenlei_up {
+	width: 160px;
+	height: 30px;
+	line-height: 30px;
+	color: #666666;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F9F9F9;
+	border: 1px solid #E7E7E7;
+}
+
+.middle_fenlei_under {
+	width: 160px;
+	border: 1px solid #EEEEEE;
+}
+
+.middle_fenlei_under ul li {
+	list-style: none;
+}
+
+.middle_fenlei_under a {
+	text-decoration: none;
+}
+
+.middle_fenlei_under .top {
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 10px;
+}
+
+.middle_fenlei_under .top a {
+	color: #7E7E7E;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.middle_fenlei_under .bottom {
+	width: 160px;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.middle_fenlei_under ul {
+	width: 140px;
+	margin-left: 20px;
+}
+
+.middle_fenlei_under .bottom a {
+	color: #7E7E7E;
+	font-size: 14px;
+}
+/*中间分类栏结束 */
+/*浏览页面左部选择栏设计结束*/
+/*中间右侧设计开始 */
+.middle_right {
+	width: 786px;
+	float: right;
+}
+
+.middle_right_up {
+	width: 786px;
+	height: 300px;
+}
+
+.ad {
+	width: 786px;
+	height: 300px;
+}
+
+.middle_right_under {
+	width: 786px;
+	margin-top: 14px;
+}
+
+.middle_right_under .top {
+    width:786px;
+	border: 1px solid #EEEEEE;
+}
+
+.middle_right_under .under {
+    width:786px;
+    height:660px;
+	border: 1px solid #EEEEEE;
+}
+
+.good {
+	width: 180px;
+	height: 300px;
+	text-align: center;
+	float: left;
+	margin-left: 10px;
+	margin-top:20px;
+}
+
+.good_top {
+	width: 180px;
+	height: 180px;
+}
+
+.good_middle {
+	width: 180px;
+	height: 45px;
+}
+
+.good_middle_in {
+	width: 35px;
+	height: 35px;
+	margin-top: 10px;
+	margin-left: 2px;
+	border: 1px solid #CCCCCC;
+	float: left;
+}
+
+.good_top a {
+	text-decoration: none;
+	width: 180px;
+	height: 180px;
+}
+
+.good_bottom {
+	width: 180px;
+	height: 75px;
+}
+
+.good_bottom_top {
+	width: 40px;
+	height: 20px;
+	margin-left: 20px;
+}
+
+.good_bottom_top span {
+	color: red;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.good_bottom_bottom {
+	width: 180px;
+	height: 40px;
+	margin-top: 15px;
+}
+
+.good_bottom_bottom a {
+	text-decoration: none;
+	color: #808080;
+	font-size: 13px;
+}
+/*中间右侧设计结束 */
+/*底部设计开始 */
+    .bottom_table{
+            width: 1300px;
+            height: 335px;
+
+            background-color: white;
+        }
+        .bottom_table .bor{
+            border-right: 1px solid #F5F5F5;
+            width: 250px;
+
+        }
+        .bottom_table .bor4{
+            width: 250px;
+        }
+
+        /*下部第一个表格结束*/
+        .bottom_foot{
+            height: 200px;
+            width: 1190px;
+            background-color: white;
+            border-top:1px solid #F5F5F5;
+        }
+        .bottom_foot0{
+            height: 200px;
+            width: 110px ;
+            float: left;
+        }
+        .bottom_foot1{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot2{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot3{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot4{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot5{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+
+        .logo_tm{
+            width: 1300px;
+            height: 24px;
+            background-color: white;
+            border-bottom: 3px solid #C31511;
+        }
+        .logo_tm1{
+            margin-left: 160px;
+        }
+        .last{
+            width: 1300px;
+            height: 300px;
+            background-color: black;
+        }
+        .last .t1{
+            color: white;
+            font-size: 13px;
+        }
+        .last .t2{
+            color: #8E8B86;
+            font-size: 13px;
+        }
+/*底部设计结束 */
+</style>
+<link rel="stylesheet" href="css/mF_fancy.css" type="text/css">
+<script type="text/javascript" src="js/jquery-1.8.3.js"></script>
+<script src="js/myfocus-2.0.1.min.js"></script>
+<script src="js/mF_fancy.js"></script>
+<script type="text/javascript">
+	$(function() {
+		//            顶部开始
+		//            首页顶部top_up开始
+		$(".top_up_left_text a").hover(function() {
+			$(this).css({
+				"color" : "red",
+				"text-decoration" : "underline"
+			});
+		}, function() {
+			$(this).css({
+				"color" : "#999999",
+				"text-decoration" : "none"
+			});
+		})
+		//首页顶部top_up结束
+		//首页顶部top_bottom开始
+		$(".top_bottom a").hover(function() {
+			$(this).css("color", "#999999");
+		}, function() {
+			$(this).css("color", "black");
+		})
+		$("#top_bottom_li4").hover(function() {
+			$("#top_bottom_xf").show();
+		}, function() {
+			$("#top_bottom_xf").hide();
+		})
+		$("#top_bottom_li5").hover(function() {
+			$("#top_bottom_xf1").show();
+		}, function() {
+			$("#top_bottom_xf1").hide();
+		})
+		$(".middle_fenlei_under .top a").hover(function() {
+			$(this).css("color", "red");
+		}, function() {
+			$(this).css("color", "#666666");
+		})
+		$(".middle_fenlei_under .bottom a").hover(function() {
+			$(this).css("color", "red");
+		}, function() {
+			$(this).css("color", "#666666");
+		})
+
+		$("#top_bottom_xf").hover(function() {
+			$(this).show();
+		}, function() {
+			$(this).hide();
+		})
+		$("#top_bottom_xf1").hover(function() {
+			$(this).show();
+		}, function() {
+			$(this).hide();
+		})
+		//首页顶部top_bottom结束
+		//            顶部结束
+		$("#mflt_suoyou").toggle(function() {
+			$("#mflb_suoyou").css("display", "none");
+		}, function() {
+			$("#mflb_suoyou").css("display", "block");
+		})
+		$("#mflt_R").toggle(function() {
+			$("#mflb_R").css("display", "none");
+		}, function() {
+			$("#mflb_R").css("display", "block");
+		})
+		$("#mflt_A").toggle(function() {
+			$("#mflb_A").css("display", "none");
+		}, function() {
+			$("#mflb_A").css("display", "block");
+		})
+		$("#mflt_shouji").toggle(function() {
+			$("#mflb_shouji").css("display", "none");
+		}, function() {
+			$("#mflb_shouji").css("display", "block");
+		})
+		$("#mflt_wangluo").toggle(function() {
+			$("#mflb_wangluo").css("display", "none");
+		}, function() {
+			$("#mflb_wangluo").css("display", "block");
+		})
+		$("#mflt_jiage").toggle(function() {
+			$("#mflb_jiage").css("display", "none");
+		}, function() {
+			$("#mflb_jiage").css("display", "block");
+		})
+	})
+</script>
+<script type="text/javascript">
+	myFocus.set({
+		id : 'picBox'
+	})
+</script>
+</head>
+<body>
+    <div class="show">
+	<!-- 顶部开始-->
+	<!-- 首页顶部top_up开始-->
+	<div class="top_up">
+		<div class="top_up_left">
+			<ul>
+				<li>
+					<div class="top_up_left_image">
+						<image src="image/shouye/top/top_up0.png" width="25px"
+							height="25px"></image>
+					</div>
+					<div class="top_up_left_text">
+						<a href="main.jsp">首页</a>
+					</div>
+				</li>
+				<li>喵，欢迎来到天猫</li>
+				<li><div class="top_up_left_text">
+						<a href="#">请登录</a>
+					</div></li>
+				<li><div class="top_up_left_text">
+						<a href="#">免费注册</a>
+					</div></li>
+			</ul>
+		</div>
+		<div class="top_up_right">
+			<ul>
+				<li><div class="top_up_left_text">
+						<a href="#">我的淘宝</a>
+					</div></li>
+				<li>
+					<div class="top_up_left_image">
+						<image src="image/shouye/top/top_up1.png" width="25px"
+							height="25px"></image>
+					</div>
+					<div class="top_up_left_text">
+						<a href="#">购物车0件</a>
+					</div>
+				</li>
+				<li><div class="top_up_left_text">
+						<a href="#">收藏夹</a>
+					</div></li>
+				<li>
+					<div class="top_up_left_image">
+						<image src="image/shouye/top/top_up2.png" width="25px"
+							height="25px"></image>
+					</div>
+					<div class="top_up_left_text">
+						<a href="#">手机版</a>
+					</div>
+				</li>
+				<li><div class="top_up_left_text">
+						<a href="https://www.taobao.com/">淘宝网</a>
+					</div></li>
+				<li><div class="top_up_left_text">
+						<a href="#">商家支持</a>
+					</div></li>
+				<li>
+					<div class="top_up_left_image">
+						 <image src="image/shouye/top/top_up3.png"
+							width="25px" height="25px"></image>
+					</div>
+					<div class="top_up_left_text">网站导航</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--首页顶部top_up结束-->
+	<!--首页顶部top_middle开始-->
+	<div class="top_middle_1">
+		<div class="top_middle_1_in_1">
+			<image src="image/shouye/top/top_middle_1_1.png"></image>
+		</div>
+		<div class="top_middle_1_in_2">
+			<div class="top_middle_1_in_2_up">oppo手机官方旗舰店</div>
+			<div class="top_middle_1_in_2_under">
+				<image src="image/shouye/top/top_middle_1_2.png"></image>
+				<image src="image/shouye/top/top_middle_1_3.png"></image>
+			</div>
+		</div>
+		<div class="top_middle_1_in_3">
+			<image src="image/shouye/top/top_middle_1_5.png"></image>
+		</div>
+		<div class="top_middle_1_in_4">
+			<div class="top_middle_1_in_4_up">手机逛</div>
+			<div class="top_middle_1_in_4_under">
+				<image src="image/shouye/top/top_middle_1_4.png"></image>
+			</div>
+		</div>
+		<div class="top_middle_1_in_5">
+			<input type="text" class="sy_sousuo">
+			<div class="sy_button">搜索</div>
+		</div>
+	</div>
+	<div class="top_middle_2">
+		<div class="top_middle_2_in_1">
+			<a href="main.jsp">
+				<div class="top_middle_2_in_1_up">OPPO官方旗舰店</div>
+				<div class="top_middle_2_in_1_under">
+					<image src="image/shouye/top/top_middle_2_1.png"></image>
+				</div>
+			</a>
+		</div>
+		<div class="top_middle_2_in_2">
+			<a href="main.jsp"> <image
+					src="image/shouye/top/top_middle_2_2.png"></image>
+			</a>
+		</div>
+		<div class="top_middle_2_in_3">
+			<a href="#?id=1">
+				<div class="top_middle_2_in_3_left">
+					<image src="image/shouye/top/top_middle_2_3.png"></image>
+				</div>
+				<div class="top_middle_2_in_3_right">
+					R11s新年版上市<br> ￥3199<br> 火爆抢购中<br>
+					<image src="image/shouye/top/top_middle_2_4.png"></image>
+				</div>
+			</a>
+		</div>
+	</div>
+	<!--首页top_middle结束-->
+	<!--首页top_bottom开始-->
+	<div class="top_bottom">
+		<ul>
+			<li><a href="main.jsp">首页</a></li>
+			<li><a href="#?id=1">R11s新年版上市</a></li>
+			<li><a href="#?id=1">R11s旗舰热销</a></li>
+			<li id="top_bottom_li4"><a href="#">旗舰R系列</a></li>
+			<li id="top_bottom_li5"><a href="#">经典A系列</a></li>
+			<li><a href="ShowServlet">手机专区</a></li>
+			<li><a href="#">配件专区</a></li>
+			<li><a href="#">尊享服务</a></li>
+			<li><a href="#">品牌故事</a></li>
+			<li><a href="#">关注店铺</a></li>
+		</ul>
+	</div>
+	<div class="top_bottom_xf" id="top_bottom_xf">
+		<div class="top_bottom_xf_in_first">
+			<a href="#?id=1">
+				<div class="top_text">R11s星幕新年红</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_1.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					新年生肖设计&nbsp;全新定制UI<br> ￥3199
+				</div>
+			</a>
+		</div>
+		<div class="top_bottom_xf_in">
+			<a href="#?id=1">
+				<div class="top_text">R11s黑色/香槟色</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_2.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					2000万智能双摄<br> ￥2999
+				</div>
+			</a>
+		</div>
+		<div class="top_bottom_xf_in">
+			<a href="#?id=1">
+				<div class="top_text">R11s红色</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_3.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					星幕屏惊艳夺目<br> ￥3199
+				</div>
+			</a>
+		</div>
+		<div class="top_bottom_xf_in">
+			<a href="#?id=3">
+				<div class="top_text">R11s高配版</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_4.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					6GB+128GB&nbsp;内存升级<br> ￥3599
+				</div>
+			</a>
+		</div>
+		<div class="top_bottom_xf_in">
+			<a href="#?id=2">
+				<div class="top_text">R11s&nbsp;Plus</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_5.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					更大的全面屏拍照手机<br> ￥3699
+				</div>
+			</a>
+		</div>
+	</div>
+	<div class="top_bottom_xf" id="top_bottom_xf1">
+		<div class="top_bottom_xf_in_second">
+			<a href="#?id=7">
+				<div class="top_text">OPPO&nbsp;A83</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_6.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					大屏全面屏<br> ￥1399
+				</div>
+			</a>
+		</div>
+		<div class="top_bottom_xf_in">
+			<a href="#?id=6">
+				<div class="top_text">OPPO&nbsp;A73</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_7.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					更清晰的全面屏<br> ￥1699
+				</div>
+			</a>
+		</div>
+		<div class="top_bottom_xf_in">
+			<a href="#?id=5">
+				<div class="top_text">OPPO&nbsp;A79</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_8.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					1月1日起直降200元<br> ￥2199
+				</div>
+			</a>
+		</div>
+		<div class="top_bottom_xf_in">
+			<a href="#?id=4">
+				<div class="top_text">OPPO&nbsp;A57</div>
+				<div class="img">
+					<image src="image/shouye/top/xf_9.png" width="138px" height="140px"></image>
+				</div>
+				<div class="bottom_text">
+					美颜自拍<br> ￥1299
+				</div>
+			</a>
+		</div>
+	</div>
+	<!--首页top_bottom结束-->
+	<!-- 顶部结束-->
+	<div class="middle">
+		<!-- 浏览页面左部选择栏设计开始-->
+		<div class="middle_left">
+			<div class="middle_sousuo">
+				<div class="middle_sousuo_up">&nbsp;店内搜索</div>
+				<div class="middle_sousuo_under">
+					<form action="ShowServlet2" method="Post">
+						<div class="middle_sousuo_under_giz">
+							关键字:<input type="text" class="gjz" name="key" value="OPPO R11">
+						</div>
+						<div class="middle_sousuo_under_price">
+							价格:<input type="text" class="price" name="low" value="">-<input
+								type="text" class="price" name="high" value="">
+						</div>
+						<div class="middle_sousuo_under_button">
+							<input type="submit" class="button" value="提交">
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="middle_fenlei">
+				<div class="middle_fenlei_up">&nbsp;宝贝分类</div>
+				<div class="middle_fenlei_under">
+					<div class="suoyou">
+						<div class="top" id="mflt_suoyou">
+							<a href="#">查看所有宝贝</a>
+						</div>
+						<div class="bottom" id="mflb_suoyou">
+							<ul>
+								<li><a href="ShowServlet">按综合</a></li>
+								<li><a href="ShowServlet">按销量</a></li>
+								<li><a href="ShowServlet">按新品</a></li>
+								<li><a href="ShowServlet3">按价格</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="R">
+						<div class="top" id="mflt_R">
+							<a href="#">旗舰R系列</a>
+						</div>
+						<div class="bottom" id="mflb_R">
+							<ul>
+								<li><a href="ShowServlet4?name=<%="R11s"%>">R11s</a></li>
+								<li><a href="ShowServlet4?name=<%="R11sPlus"%>">R11s
+										plus</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="A">
+						<div class="top" id="mflt_A">
+							<a href="#">经典A系列</a>
+						</div>
+						<div class="bottom" id="mflb_A">
+							<ul>
+								<li><a href="ShowServlet4?name=<%="A57"%>">A57</a></li>
+								<li><a href="ShowServlet4?name=<%="A79"%>">A79</a></li>
+								<li><a href="ShowServlet4?name=<%="A73"%>">A73</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="shouji">
+						<div class="top" id="mflt_shouji">
+							<a href="#">手机专区</a>
+						</div>
+						<div class="bottom" id="mflb_shouji">
+							<ul>
+								<li><a href="#">年度旗舰</a></li>
+								<li><a href="#">爆款热销</a></li>
+								<li><a href="#">经典推荐</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="wangluo">
+						<div class="top" id="mflt_wangluo">
+							<a href="#">网络分类</a>
+						</div>
+						<div class="bottom" id="mflb_wangluo">
+							<ul>
+								<li><a href="ShowServlet">全网通</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="jiage">
+						<div class="top" id="mflt_jiage">
+							<a href="#">价格分类</a>
+						</div>
+						<div class="bottom" id="mflb_jiage">
+							<ul>
+								<li><a href="ShowServlet5?num=<%=3000%>">3000元以上</a></li>
+								<li><a href="ShowServlet6?low=<%=2000%>&high=<%=2999%>">2000-2999元</a></li>
+								<li><a href="ShowServlet6?low=<%=1000%>&high=<%=1999%>">1000-1999元</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--浏览页面左部选择栏设计结束 -->
+		<!-- 浏览页面右部设计开始-->
+		<div class="middle_right">
+			<div class="middle_right_up">
+				<!-- 焦点图盒子 -->
+				<div id="picBox" class="ad">
+					<!-- 载入中的Loading图片(可选) -->
+					<div class="loading">
+						<img src="image/shouye/lunbo/loading.gif" alt="请稍候..." />
+					</div>
+					<!-- 内容列表 -->
+					<div class="pic">
+						<ul>
+							<li><a href="#"> <img
+									src="image/shouye/liulan/liulan_lunbo1.jpg" width="786px"
+									height="300px" />
+							</a></li>
+							<li><a href="#"> <img
+									src="image/shouye/liulan/liulan_lunbo2.jpg" width="786px"
+									height="300px" />
+							</a></li>
+							<li><a href="#"> <img
+									src="image/shouye/liulan/liulan_lunbo3.jpg" width="786px"
+									height="300px" />
+							</a></li>
+							<li><a href="#"> <img
+									src="image/shouye/liulan/liulan_lunbo4.jpg" width="786px"
+									height="300px" />
+							</a></li>
+							<!-- 你可以根据需要添加更多的列 -->
+						</ul>
+					</div>
+				</div>
+			</div>
+		    <!--商品浏览的设计  -->
+			<div class="middle_right_under">
+				<div class="top">商品浏览：</div>
+					<script type="text/javascript">
+						$(function() {
+							$(".good_middle_in img").click(
+									function() {
+										var good_id=$(this).attr("good_id");
+										$(".good_top[good_id="+good_id+"] img").attr("src",
+														$(this).attr("src"));
+									})
+							$(".good_middle_in img").focus(function() {
+								$(this).css("border", "2px solid red");
+							})
+							$(".good_bottom_bottom a").hover(function(){
+								$(this).css("text-decoration","underline");
+							},function(){
+								$(this).css("text-decoration","none");
+							})
+						})
+					</script>
+				<div class="under">
+					<%
+						List<Good> glist= (ArrayList<Good>) request.getAttribute("glist");
+						List<String> ilist = null;
+						ImageDao imagedao = new ImageDao();
+						for (int i = 0; i < glist.size(); i++) {
+							Good good = glist.get(i);
+							int good_id=good.getGood_id();
+							ilist = imagedao.selectByGoodid(good.getGood_id());
+					%>
+					<div class="good">
+						<div class="good_top" id="good_top" good_id="<%=good_id%>">
+							<a href="#?id=<%=good.getGood_id()%>"> 
+							<img src="<%=ilist.get(0)%>" width="180px" height="180px"></img>
+							</a>
+						</div>
+						<div class="good_middle">
+						<%
+						for(int j=1;j<ilist.size();j++) {
+							 String path=ilist.get(j);
+							 
+						%>
+							<div class="good_middle_in" id="good_middle">
+								<img src="<%=path%>" width="35px" height="35px" good_id="<%=good_id%>"></img>
+							</div>
+						<%
+						}
+						%>
+						</div>
+						<div class="good_bottom">
+							<div class="good_bottom_top">
+								<span><%=good.getOriginalPrice()%></span>
+							</div>
+							<div class="good_bottom_bottom">
+								<a href="#?id=<%=good.getGood_id()%>"><%=good.getIntroduce()%></a>
+							</div>
+						</div>
+					</div>
+					<%
+		}
+	%>
+				</div>
+			    </div>
+		    </div>
+		<!-- 浏览页面右部设计结束-->
+	</div>
+	<!-- 中间设计结束 -->
+	<!-- 底部设计开始 -->
+	<div class="bottom_table">
+    <table cellspacing="30" cellpadding="0" border="0">
+        <tr>
+            <td>
+                <div class="bor 1">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu01.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">品质保证 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">品质护航购物无忧</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor 2">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu02.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">七天无理由退货 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">为你提供无忧售后保障</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor 3">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu03.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">特殊服务体验 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">为你呈现不一样的服务</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor4">
+
+
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu04.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">帮助中心 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">你的购物指南</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="bottom_foot">
+        <div class="bottom_foot0"></div>
+        <div class="bottom_foot1">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>购物指南</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">免费注册 <br/>开通支付宝 <br/>支付宝充值</span>
+        </div>
+        <div class="bottom_foot2">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>天猫保障</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">发票保障 <br/>售后规则 <br/>缺货赔付</span>
+
+        </div>
+        <div class="bottom_foot3">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>支付方式</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">支付宝快捷支付 <br/>支付宝余额支付 <br/>支付宝钱包付款 <br/>货到付款 <br/>新人支付</span>
+        </div>
+        <div class="bottom_foot4">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>商家服务</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">商家入驻 <br/>商家中心 <br/>天猫智库 <br/> 天猫规则 <br/>物流服务 <br/>喵言喵语 <br/>运营服务</span>
+        </div>
+        <div class="bottom_foot5">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>手机服务</lable>
+            <br/>
+            <img src="image/shouye/footer/erweima.png" alt=""/>
+        </div>
+    </div>
+
+
+</div>
+<div class="logo_tm">
+    <div class="logo_tm1">
+        <img src="image/shouye/footer/logo_tianmao.png" alt=""/>
+    </div>
+</div>
+<div class="last">
+    <table cellpadding="0" cellspacing="15" align="center">
+        <tr>
+            <td align="left" >
+                <div class="t1" >
+                    <br/>
+                    关于天猫&nbsp;帮助中心&nbsp;诚聘英才&nbsp;联系我们&nbsp;网站合作&nbsp;法律声明 &nbsp;廉政举报
+                    <br/>
+                    <br/>
+                    阿里巴巴集团|淘宝网|天猫|聚划算|全球速卖通|阿里巴巴国际交易市场|1688|阿里妈妈|阿里旅行|阿里云计算|YunOS|阿里通信|万网|高德|优酷|友盟|酷盘|虾米|天天动听|来往|钉 <br/>
+                    <br/>
+                    钉|11Main|支付宝
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="t2">
+                    增值电信业务经营许可证：浙B2-20110446 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;互联网医疗保健信息服务&nbsp;审核同意书&nbsp;浙卫网申[2012]6号
+                    <br/> <br/>
+                    互联网药品信息服务资质证书编号:浙-（经营性）-2012-0005 <br/><br/>
+                    @2003-2015  TMALLCOM版权所有
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/shouye/footer/renzheng_01.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="image/shouye/footer/renzheng_02.png" alt=""/>
+            </td>
+        </tr>
+    </table>
+</div>
+	<!-- 底部设计结束 -->
+	</div>
+</body>
+</html>

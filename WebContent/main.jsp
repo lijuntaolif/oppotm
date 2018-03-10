@@ -199,6 +199,7 @@
             height:300px;
             background:#F5F5F5;
             margin-top:0;
+            margin-left:22px;
             position:absolute;
             z-index:3;
             display:none;
@@ -257,7 +258,7 @@
         .middle_in2{
             width:1300px;
             height:650px;
-            background:#AE0323 ;
+            background:#AE0323;
         }
         .middle_in2_ck{
             width:1300px;
@@ -580,7 +581,7 @@
         <ul>
             <li>
                 <div class="top_up_left_image"><image src="image/shouye/top/top_up0.png" width="25px" height="25px"></image></div>
-                <div class="top_up_left_text"><a href="shouye.html">首页</a></div>
+                <div class="top_up_left_text"><a href="main.jsp">首页</a></div>
             </li>
             <li>喵，欢迎来到天猫</li>
             <li><div class="top_up_left_text"><a href="#">请登录</a></div></li>
@@ -599,10 +600,10 @@
                 <div class="top_up_left_image"><image src="image/shouye/top/top_up2.png" width="25px" height="25px"></image></div>
                 <div class="top_up_left_text"><a href="#">手机版</a></div>
             </li>
-            <li><div class="top_up_left_text"><a href="#">淘宝网</a></div></li>
+            <li><div class="top_up_left_text"><a href="https://www.taobao.com/">淘宝网</a></div></li>
             <li><div class="top_up_left_text"><a href="#">商家支持</a></div></li>
             <li>
-                <div class="top_up_left_image"><image><image src="image/shouye/top/top_up3.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up3.png" width="25px" height="25px"></image></div>
                 <div class="top_up_left_text">网站导航</div></li>
         </ul>
     </div>
@@ -630,7 +631,7 @@
 </div>
 <div class="top_middle_2">
     <div class="top_middle_2_in_1">
-        <a href="#">
+        <a href="main.jsp">
             <div class="top_middle_2_in_1_up">OPPO官方旗舰店</div>
             <div class="top_middle_2_in_1_under">
                 <image src="image/shouye/top/top_middle_2_1.png"></image>
@@ -638,12 +639,12 @@
         </a>
     </div>
     <div class="top_middle_2_in_2">
-        <a href="shouye.html">
+        <a href="main.jsp">
             <image src="image/shouye/top/top_middle_2_2.png"></image>
         </a>
     </div>
     <div class="top_middle_2_in_3">
-        <a href="#">
+        <a href="#?id=1">
             <div class="top_middle_2_in_3_left">
                 <image src="image/shouye/top/top_middle_2_3.png"></image>
             </div>
@@ -660,12 +661,12 @@
 <!--首页top_bottom开始-->
 <div class="top_bottom">
     <ul>
-        <li><a href="#">首页</a></li>
-        <li><a href="#">R11s新年版上市</a></li>
-        <li><a href="#">R11s旗舰热销</a></li>
+        <li><a href="main.jsp">首页</a></li>
+        <li><a href="#?id=1">R11s新年版上市</a></li>
+        <li><a href="#?id=1">R11s旗舰热销</a></li>
         <li id="top_bottom_li4"><a href="#">旗舰R系列</a></li>
         <li id="top_bottom_li5"><a href="#">经典A系列</a></li>
-        <li><a href="#">手机专区</a></li>
+        <li><a href="ShowServlet">手机专区</a></li>
         <li><a href="#">配件专区</a></li>
         <li><a href="#">尊享服务</a></li>
         <li><a href="#">品牌故事</a></li>
@@ -674,7 +675,7 @@
 </div>
 <div class="top_bottom_xf" id="top_bottom_xf">
     <div class="top_bottom_xf_in_first">
-        <a href="#">
+        <a href="#?id=1">
         <div class="top_text">R11s星幕新年红</div>
         <div class="img">
             <image src="image/shouye/top/xf_1.png" width="138px" height="140px"></image>
@@ -686,7 +687,7 @@
         </a>
     </div>
     <div class="top_bottom_xf_in">
-        <a href="#">
+        <a href="#?id=1">
         <div class="top_text">R11s黑色/香槟色</div>
         <div class="img">
             <image src="image/shouye/top/xf_2.png" width="138px" height="140px"></image>
@@ -698,7 +699,7 @@
         </a>
     </div>
     <div class="top_bottom_xf_in">
-        <a href="#">
+        <a href="#?id=1">
         <div class="top_text">R11s红色</div>
         <div class="img">
             <image src="image/shouye/top/xf_3.png" width="138px" height="140px"></image>
@@ -710,7 +711,7 @@
         </a>
     </div>
     <div class="top_bottom_xf_in">
-        <a href="#">
+        <a href="#?id=3">
         <div class="top_text">R11s高配版</div>
         <div class="img">
             <image src="image/shouye/top/xf_4.png" width="138px" height="140px"></image>
@@ -722,7 +723,7 @@
         </a>
     </div>
     <div class="top_bottom_xf_in">
-        <a href="#">
+        <a href="#?id=2">
         <div class="top_text">R11s&nbsp;Plus</div>
         <div class="img">
             <image src="image/shouye/top/xf_5.png" width="138px" height="140px"></image>
@@ -736,7 +737,7 @@
 </div>
 <div class="top_bottom_xf" id="top_bottom_xf1">
     <div class="top_bottom_xf_in_second">
-        <a href="#">
+        <a href="#?id=7">
         <div class="top_text">OPPO&nbsp;A83</div>
         <div class="img">
             <image src="image/shouye/top/xf_6.png" width="138px" height="140px"></image>
@@ -748,7 +749,7 @@
         </a>
     </div>
     <div class="top_bottom_xf_in">
-        <a href="#">
+        <a href="#?id=6">
         <div class="top_text">OPPO&nbsp;A73</div>
         <div class="img">
             <image src="image/shouye/top/xf_7.png" width="138px" height="140px"></image>
@@ -760,7 +761,7 @@
         </a>
     </div>
     <div class="top_bottom_xf_in">
-        <a href="#">
+        <a href="#?id=5">
         <div class="top_text">OPPO&nbsp;A79</div>
         <div class="img">
             <image src="image/shouye/top/xf_8.png" width="138px" height="140px"></image>
@@ -772,7 +773,7 @@
         </a>
     </div>
     <div class="top_bottom_xf_in">
-        <a href="#">
+        <a href="#?id=4">
         <div class="top_text">OPPO&nbsp;A57</div>
         <div class="img">
             <image src="image/shouye/top/xf_9.png" width="138px" height="140px"></image>
@@ -798,13 +799,13 @@
             <div class="pic">
                 <ul>
                     <li>
-                        <a href="#">
+                        <a href="#?id=1">
                             <img src="image/shouye/lunbo/lunbo.jpg"  width="1300px" height="500px"/>
                         </a>
                     </li>
                     <li>
-                        <a href="#">
-                            <img src="image/shouye/lunbo/lunbo%20(2).jpg"  width="1300px" height="500px"/>
+                        <a href="#?id=7">
+                            <img src="image/shouye/lunbo/lunbo (2).jpg"  width="1300px" height="500px"/>
                         </a>
                     </li>
                     <!-- 你可以根据需要添加更多的列 -->
@@ -819,16 +820,16 @@
         </div>
         <div class="middle_in2_under">
             <div class="middle_in2_under_1">
-                <a href="#"><image src="image/shouye/middle/middle_2_1.png"></image></a>
+                <a href="#?id=1"><image src="image/shouye/middle/middle_2_1.png"></image></a>
             </div>
             <div class="middle_in2_under_2">
-                <a href="#"><image src="image/shouye/middle/middle_2_2.png"></image></a>
+                <a href="#?id=1"><image src="image/shouye/middle/middle_2_2.png"></image></a>
             </div>
             <div class="middle_in2_under_3">
-                <a href="#"><image src="image/shouye/middle/middle_2_3.png"></image></a>
+                <a href="#?id=1"><image src="image/shouye/middle/middle_2_3.png"></image></a>
             </div>
             <div class="middle_in2_under_4">
-                <a href="#"><image src="image/shouye/middle/middle_2_4.png"></image></a>
+                <a href="#?id=7"><image src="image/shouye/middle/middle_2_4.png"></image></a>
             </div>
         </div>
     </div>
@@ -838,7 +839,7 @@
             <span>新年臻选暖冬好礼</span>
         </div>
         <div class="middle_in3_under">
-            <a href="#"><image src="image/shouye/middle/middle_3_1.png"></image></a>
+            <a href="#?id=1"><image src="image/shouye/middle/middle_3_1.png"></image></a>
         </div>
     </div>
     <div class="middle_in4">
@@ -848,13 +849,13 @@
         </div>
         <div class="middle_in4_under">
             <div class="middle_in4_under_1">
-                <a href="#"><image src="image/shouye/middle/middle_4_1.png"></image></a>
+                <a href="#?id=1"><image src="image/shouye/middle/middle_4_1.png"></image></a>
             </div>
             <div class="middle_in4_under_2">
-                <a href="#"><image src="image/shouye/middle/middle_4_2.png"></image></a>
+                <a href="#?id=1"><image src="image/shouye/middle/middle_4_2.png"></image></a>
             </div>
             <div class="middle_in4_under_3">
-                <a href="#"><image src="image/shouye/middle/middle_4_3.png"></image></a>
+                <a href="#?id=2"><image src="image/shouye/middle/middle_4_3.png"></image></a>
             </div>
         </div>
     </div>
@@ -865,13 +866,13 @@
         </div>
         <div class="middle_in5_under">
             <div class="middle_in5_under_1">
-                <a href="#"><image src="image/shouye/middle/middle_5_1.png"></image></a>
+                <a href="#?id=5"><image src="image/shouye/middle/middle_5_1.png"></image></a>
             </div>
             <div class="middle_in5_under_2">
-                <a href="#"><image src="image/shouye/middle/middle_5_2.png"></image></a>
+                <a href="#?id=6"><image src="image/shouye/middle/middle_5_2.png"></image></a>
             </div>
             <div class="middle_in5_under_3">
-                <a href="#"><image src="image/shouye/middle/middle_5_3.png"></image></a>
+                <a href="#?id=7"><image src="image/shouye/middle/middle_5_3.png"></image></a>
             </div>
         </div>
     </div>
@@ -885,7 +886,7 @@
                 <a href="#"><image src="image/shouye/middle/middle_6_1.png"></image></a>
             </div>
             <div class="middle_in6_under_right">
-                <a href="#"><image src="image/shouye/middle/middle_6_2.png"></image></a>
+                <a href="#?id=4"><image src="image/shouye/middle/middle_6_2.png"></image></a>
             </div>
         </div>
     </div>

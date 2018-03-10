@@ -7,7 +7,6 @@ public class Good {
 	private String introduce;//商品介绍
 	private double originalPrice;//原价
 	private double discountedPrice;//现价
-	private String image_name;//图片名
 	private int  inventory;  //数量
 	
 	public Good() {
@@ -16,7 +15,7 @@ public class Good {
 	}
 	
 	public Good(int good_id, String good_name, String good_type, String introduce, double originalPrice,
-			double discountedPrice, String image_name, int inventory) {
+			double discountedPrice, int inventory) {
 		super();
 		this.good_id = good_id;
 		this.good_name = good_name;
@@ -24,7 +23,6 @@ public class Good {
 		this.introduce = introduce;
 		this.originalPrice = originalPrice;
 		this.discountedPrice = discountedPrice;
-		this.image_name = image_name;
 		this.inventory = inventory;
 	}
 
@@ -63,12 +61,6 @@ public class Good {
 	}
 	public void setDiscountedPrice(double discountedPrice) {
 		this.discountedPrice = discountedPrice;
-	}
-	public String getImage_name() {
-		return image_name;
-	}
-	public void setImage_name(String image_name) {
-		this.image_name = image_name;
 	}
 	public int getInventory() {
 		return inventory;

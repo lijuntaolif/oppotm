@@ -97,9 +97,10 @@ public class CompletedForm {
 		return phone;
 	}
 	public void setPhone(String phone) {
-		this.phone = phone;
+		this.phone=phone;
 	}
+	
+}
 
 	
 	
-}
