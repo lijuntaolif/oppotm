@@ -70,4 +70,38 @@
 		<servlet-name>ShowServlet6</servlet-name>
 		<url-pattern>/ShowServlet6</url-pattern>
 	</servlet-mapping>
+	
+   <servlet>
+   		<servlet-name>ShowCart
+   		</servlet-name>
+   		<servlet-class>cn.oppotm.servlet.ShowCartServlet
+   		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   		<servlet-name>ShowCart</servlet-name>
+   		<url-pattern>/ShowCart</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+   		<servlet-name>FormCommitServlet
+   		</servlet-name>
+   		<servlet-class>cn.oppotm.servlet.FormCommitServlet
+   		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   		<servlet-name>FormCommitServlet</servlet-name>
+   		<url-pattern>/FormCommitServlet</url-pattern>
+   </servlet-mapping>
+   
+   <servlet>
+   		<servlet-name>account
+   		</servlet-name>
+   		<servlet-class>cn.oppotm.servlet.AccountServlet
+   		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   		<servlet-name>account</servlet-name>
+   		<url-pattern>/account</url-pattern>
+   </servlet-mapping>
+  
 </web-app>
