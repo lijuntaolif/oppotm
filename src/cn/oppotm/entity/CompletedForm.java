@@ -98,6 +98,5 @@ public class CompletedForm {
 	}
 	public void setPhone(int phone) {
 		this.phone = phone;
-	}
-	
+	}	
 }
