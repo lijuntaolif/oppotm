@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/mF_fancy.css" type="text/css">
     <link rel="stylesheet" href="css/css-main-top.css" type="text/css">
     <link rel="stylesheet" href="css/css-main-middle.css" type="text/css">
-    <link rel="stylesheet" href="css/css-main-top.css" type="text/css">
+    <link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
     
     <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
     <script src="js/myfocus-2.0.1.min.js"></script>

@@ -7,7 +7,7 @@
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title></title>
+<title>商品购买</title>
 
 <style>
 
@@ -95,7 +95,7 @@
 			<div class="productNumber">
 				<span>数量</span> <span> <span class="productNumberSettingSpan">
 						<input class="productNumberSetting" id= "productNumberSetting" type="text" value="1">
-						<input type="hidden" id="good_id" value="<%=good.getGood_id()%>">
+						
 			
 				</span> <span class="arrow"> <a href="#nowhere"
 						class="increaseNumber"> <span class="updown"> <img id="increaseNumber" onclick="changenum()"
@@ -113,11 +113,25 @@
 
 			<!--购买/加入购物车-->
 			<div class="buyDiv">
-				<div class="buyLink" ><button class="buyButton">立即购买</button></div>
-				 <input type="hidden" id="user_id" value="<%=session.getAttribute("user_id")%>">
 		
+				<div class="buyLink" >
+				 <form action="BuyNowServlet" method="get">
+				 	<input type="submit" id="buyButton" value="立即购买">
+				 	<input type="hidden" id="user_id" name="userid" value="<%=session.getAttribute("user_id")%>">
+				 	<input type="hidden" id="good_id" name="goodid" value="<%=good.getGood_id()%>">
+				 	
+				 	<input type="hidden" id="good_num" name="goodnum" value="1">
+				 	
+				 	<input type="hidden" id="good_pay" name="goodpay" value="<%=good.getDiscountedPrice()%>">
+				 	<input type="hidden" id="good_price" name="goodprice" value="<%=good.getDiscountedPrice()%>">
+				 	
+				 
+				 	
+				 	
+				 </form>
+				 </div>
 					<div class="addCartLink">
-					<button class="addCartButton">
+					<button id="addCartButton">
 						<span class="glyphicon glyphicon-shopping-cart"></span>加入购物车
 					</button>
 					

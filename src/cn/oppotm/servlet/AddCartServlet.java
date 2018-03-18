@@ -21,8 +21,11 @@ public class AddCartServlet extends HttpServlet {
 		int good_id=Integer.parseInt(goodid);
     	String userid=req.getParameter("user_id");
     	int user_id=Integer.parseInt(userid);
+    	System.out.println(good_id);
+    	System.out.println(user_id);
     	ShopCartDao shopCartDao=new ShopCartDao();
     	int t=shopCartDao.selectCount(good_id, user_id);
+    	
     	int flag=0;
     	if(t==0){
     		flag=shopCartDao.addCart(user_id, good_id);

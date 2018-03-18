@@ -1,0 +1,591 @@
+* {
+	padding: 0 0;
+	margin: 0 auto;
+}
+.show{
+    width:1300px;
+    height:2142px;
+}
+/*顶部开始*/
+/*首页顶部top_up开始*/
+.top_up {
+	width: 1300px;
+	height: 25px;
+	background-color: #F2F2F2;
+	color: #999999;
+	font-size: 14px;
+}
+
+.top_up_left {
+	width: 700px;
+	height: 25px;
+	float: left;
+}
+
+.top_up_left ul {
+	list-style: none;
+	margin-left: 30px;
+}
+
+.top_up_left ul li {
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	margin-left: 20px;
+}
+
+.top_up_left_image {
+	float: left;
+	width: 25px;
+	height: 25px;
+}
+
+.top_up_left_text {
+	float: left;
+}
+
+.top_up_left_text a {
+	text-decoration: none;
+	color: #999999;
+}
+
+.top_up_right {
+	width: 600px;
+	height: 25px;
+	float: right;
+}
+
+.top_up_right ul {
+	list-style: none;
+}
+
+.top_up_right ul li {
+	height: 25px;
+	line-height: 25px;
+	float: left;
+	margin-left: 20px;
+}
+/*首页顶部top_up结束*/
+/*首页顶部top_middle开始*/
+.top_middle_1 {
+	width: 1300px;
+	height: 80px;
+}
+
+.top_middle_1_in_1 {
+	width: 180px;
+	height: 50px;
+	float: left;
+	margin-left: 40px;
+	margin-top: 10px;
+}
+
+.top_middle_1_in_2 {
+	width: 140px;
+	height: 40px;
+	float: left;
+	margin-top: 20px;
+	border-left: 1px solid #F0F0F0;
+	border-right: 1px dashed #F0F0F0;
+}
+
+.top_middle_1_in_2_up {
+	font-size: 10px;
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.top_middle_1_in_2_under {
+	margin-left: 10px;
+}
+
+.top_middle_1_in_3 {
+	width: 120px;
+	height: 50px;
+	float: left;
+	margin-top: 10px;
+}
+
+.top_middle_1_in_4 {
+	width: 60px;
+	height: 40px;
+	float: left;
+	margin-top: 20px;
+	border-left: 1px solid #F0F0F0;
+}
+
+.top_middle_1_in_4_up {
+	font-size: 12px;
+	color: #999999;
+	margin-left: 10px;
+}
+
+.top_middle_1_in_4_under {
+	margin-left: 10px;
+}
+
+.top_middle_1_in_5 {
+	width: 600px;
+	height: 80px;
+	float: right;
+}
+
+.sy_sousuo {
+	margin-top: 20px;
+	width: 400px;
+	height: 30px;
+	border: 3px solid #FF0036;
+	float: left;
+	margin-left: 30px;
+}
+
+.sy_button {
+	margin-top: 20px;
+	width: 80px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	background-color: #FF0036;
+	color: white;
+	font-size: 16px;
+	float: left;
+}
+
+.top_middle_2 {
+	width: 1300px;
+	height: 122px;
+	border-top: 1px solid #C8BAAA;
+	border-bottom: 1px solid #D5D5D5;
+}
+
+.top_middle_2_in_1 {
+	margin-top: 40px;
+	margin-left: 40px;
+	width: 200px;
+	height: 60px;
+	float: left;
+}
+
+.top_middle_2_in_1 a {
+	text-decoration: none;
+	color: #2C2C2C;
+	font-weight: bold;
+}
+
+.top_middle_2_in_2 {
+	margin-left: 300px;
+	margin-top: 40px;
+	width: 200px;
+	height: 60px;
+	float: left;
+}
+
+.top_middle_2_in_3 {
+	float: right;
+	margin-right: 40px;
+	margin-top: 20px;
+}
+
+.top_middle_2_in_3_left {
+	float: left;
+}
+
+.top_middle_2_in_3_right {
+	float: right;
+	margin-top: 10px;
+	color: #5D5D5D;
+	font-weight: bold;
+	font-size: 14px;
+}
+/*首页top_middle结束*/
+/*首页top_bottom开始*/
+.top_bottom {
+	width: 1300px;
+	height: 50px;
+	line-height: 50px;
+}
+
+.top_bottom ul {
+	list-style: none;
+	width: 1300px;
+}
+
+.top_bottom ul li {
+	float: left;
+	margin-left: 50px;
+}
+
+.top_bottom a {
+	text-decoration: none;
+	color: black;
+}
+
+.top_bottom_xf {
+	left: 0;
+	top: 279px;
+	width: 1300px;
+	height: 300px;
+	background: #F5F5F5;
+	margin-top: 0;
+	margin-left:22px;
+	position: absolute;
+	z-index: 3;
+	display: none;
+	text-align: center;
+}
+
+.top_bottom_xf a {
+	text-decoration: none;
+}
+
+.top_bottom_xf_in_first {
+	width: 200px;
+	height: 240px;
+	margin-top: 30px;
+	float: left;
+	margin-left: 100px;
+}
+
+.top_bottom_xf_in {
+	width: 200px;
+	height: 240px;
+	margin-top: 30px;
+	float: left;
+	margin-left: 20px;
+}
+
+.top_bottom_xf .top_text {
+	color: #4E4E4E;
+	font-size: 18px;
+	font-family: 微软雅黑;
+	font-weight: bold;
+}
+
+.top_bottom_xf .img {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.top_bottom_xf .bottom_text {
+	color: #6E6E6E;
+}
+
+.top_bottom_xf .top_bottom_xf_in_second {
+	width: 200px;
+	height: 240px;
+	margin-top: 30px;
+	float: left;
+	margin-left: 200px;
+}
+/*首页top_bottom结束*/
+/*顶部结束*/
+/*中间开始*/
+.middle {
+	width: 950px;
+	height:1200px;
+}
+/*浏览页面左部选择栏设计开始*/
+.middle_left {
+	width: 160px;
+	float: left;
+}
+/*中间搜索栏开始 */
+.middle_sousuo {
+	width: 160px;
+	height: 160px;
+}
+
+.middle_sousuo_up {
+	width: 160px;
+	height: 30px;
+	line-height: 30px;
+	color: #666666;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F9F9F9;
+	border: 1px solid #E7E7E7;
+}
+
+.middle_sousuo_under {
+	width: 160px;
+	height: 130px;
+	border: 1px solid #EEEEEE;
+	color: #666666;
+	font-size: 14px;
+}
+
+.middle_sousuo_under_giz {
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.middle_sousuo_under_price {
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.middle_sousuo_under_button {
+	width: 160px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.middle_sousuo_under .button {
+	width: 40px;
+	height: 20px;
+	background: #333333;
+	color: white;
+	border: 1px solid #333333;
+	border-radius: 4px;
+}
+
+.middle_sousuo_under .gjz {
+	width: 100px;
+	height: 20px;
+}
+
+.middle_sousuo_under .price {
+	width: 30px;
+	height: 20px;
+}
+/*中间搜索栏结束 */
+/*中间分类栏开始 */
+.middle_fenlei {
+	width: 160px;
+}
+
+.middle_fenlei_up {
+	width: 160px;
+	height: 30px;
+	line-height: 30px;
+	color: #666666;
+	font-size: 14px;
+	font-weight: bold;
+	background: #F9F9F9;
+	border: 1px solid #E7E7E7;
+}
+
+.middle_fenlei_under {
+	width: 160px;
+	border: 1px solid #EEEEEE;
+}
+
+.middle_fenlei_under ul li {
+	list-style: none;
+}
+
+.middle_fenlei_under a {
+	text-decoration: none;
+}
+
+.middle_fenlei_under .top {
+	width: 150px;
+	height: 20px;
+	line-height: 20px;
+	margin-left: 10px;
+}
+
+.middle_fenlei_under .top a {
+	color: #7E7E7E;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.middle_fenlei_under .bottom {
+	width: 160px;
+	border-bottom: 1px solid #EEEEEE;
+}
+
+.middle_fenlei_under ul {
+	width: 140px;
+	margin-left: 20px;
+}
+
+.middle_fenlei_under .bottom a {
+	color: #7E7E7E;
+	font-size: 14px;
+}
+/*中间分类栏结束 */
+/*浏览页面左部选择栏设计结束*/
+/*中间右侧设计开始 */
+.middle_right {
+	width: 786px;
+	float: right;
+}
+
+.middle_right_up {
+	width: 786px;
+	height: 300px;
+}
+
+.ad {
+	width: 786px;
+	height: 300px;
+}
+
+.middle_right_under {
+	width: 786px;
+	margin-top: 14px;
+}
+
+.middle_right_under .top {
+    width:786px;
+	border: 1px solid #EEEEEE;
+}
+
+.middle_right_under .under {
+    width:786px;
+    height:660px;
+	border: 1px solid #EEEEEE;
+}
+
+.good {
+	width: 180px;
+	height: 300px;
+	text-align: center;
+	float: left;
+	margin-left: 10px;
+	margin-top:20px;
+}
+
+.good_top {
+	width: 180px;
+	height: 180px;
+}
+
+.good_middle {
+	width: 180px;
+	height: 45px;
+}
+
+.good_middle_in {
+	width: 35px;
+	height: 35px;
+	margin-top: 10px;
+	margin-left: 2px;
+	border: 1px solid #CCCCCC;
+	float: left;
+}
+
+.good_top a {
+	text-decoration: none;
+	width: 180px;
+	height: 180px;
+}
+
+.good_bottom {
+	width: 180px;
+	height: 75px;
+}
+
+.good_bottom_top {
+	width: 40px;
+	height: 20px;
+	margin-left: 20px;
+}
+
+.good_bottom_top span {
+	color: red;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.good_bottom_bottom {
+	width: 180px;
+	height: 40px;
+	margin-top: 15px;
+}
+
+.good_bottom_bottom a {
+	text-decoration: none;
+	color: #808080;
+	font-size: 13px;
+}
+/*中间右侧设计结束 */
+/*底部设计开始 */
+    .bottom_table{
+            width: 1300px;
+            height: 335px;
+
+            background-color: white;
+        }
+        .bottom_table .bor{
+            border-right: 1px solid #F5F5F5;
+            width: 250px;
+
+        }
+        .bottom_table .bor4{
+            width: 250px;
+        }
+
+        /*下部第一个表格结束*/
+        .bottom_foot{
+            height: 200px;
+            width: 1190px;
+            background-color: white;
+            border-top:1px solid #F5F5F5;
+        }
+        .bottom_foot0{
+            height: 200px;
+            width: 110px ;
+            float: left;
+        }
+        .bottom_foot1{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot2{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot3{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot4{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot5{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+
+        .logo_tm{
+            width: 1300px;
+            height: 24px;
+            background-color: white;
+            border-bottom: 3px solid #C31511;
+        }
+        .logo_tm1{
+            margin-left: 160px;
+        }
+        .last{
+            width: 1300px;
+            height: 300px;
+            background-color: black;
+        }
+        .last .t1{
+            color: white;
+            font-size: 13px;
+        }
+        .last .t2{
+            color: #8E8B86;
+            font-size: 13px;
+        }
+/*底部设计结束 */

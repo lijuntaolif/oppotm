@@ -134,6 +134,7 @@
    		<servlet-name>AddCartServlet</servlet-name>
    		<url-pattern>/AddCartServlet</url-pattern>
    </servlet-mapping>
+   
    <servlet>
    		<servlet-name>BuyNowServlet
    		</servlet-name>

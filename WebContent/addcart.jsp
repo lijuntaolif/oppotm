@@ -11,7 +11,7 @@
 
 session.setAttribute("user_id", 1); 
 %>
- <a href="BuyServlet?good_id=1">点击显示gooddetail</a>
+ <a href="BuyServlet?good_id=3">点击显示gooddetail</a>
  <a href="ShowCart?user_id=<%=session.getAttribute("user_id") %>">点击显示购物车</a>
 
 </body>

@@ -3,6 +3,16 @@
 * Date 2012.5.8
 * Author koen_lee
 */
+function PutValue(){
+	var good_num= $(".productNumberSetting").val();
+	var good_price=$("#good_price").val();
+	var pay=good_num*good_price;
+	$("#good_num").val(good_num);
+	$("#good_pay").val(pay);
+	
+};
+
+
 $(function(){
 	var stock =$(".inventory").val();
 	$(".productNumberSetting").keyup(function(){
@@ -15,6 +25,7 @@ $(function(){
 		if(num>stock)
 			num = stock;
 		$(".productNumberSetting").val(num);
+		PutValue();
 	});
 	
 	$(".increaseNumber").click(function(){
@@ -24,6 +35,7 @@ $(function(){
 		if(num>stock)
 			num = stock;
 		$(".productNumberSetting").val(num);
+		PutValue();
 	});
 	$(".decreaseNumber").click(function(){
 		var num= $(".productNumberSetting").val();
@@ -31,6 +43,7 @@ $(function(){
 		if(num<=0)
 			num=1;
 		$(".productNumberSetting").val(num);
+		PutValue();
 	});
 	
 
@@ -38,7 +51,8 @@ $(function(){
 		var bigImageURL = $(this).attr("bigImageURL");
         $("img.bigImg").attr("src",bigImageURL);
 	});
-	$(".addCartButton").click(function(){
+	
+	$("#addCartButton").click(function(){
 		
 		var user_id=$("#user_id").val();
 		var good_id=$("#good_id").val();
