@@ -114,6 +114,36 @@
    		<servlet-name>DeleteCartServlet</servlet-name>
    		<url-pattern>/DeleteCartServlet</url-pattern>
    </servlet-mapping>
+   <servlet>
+   		<servlet-name>BuyServlet
+   		</servlet-name>
+   		<servlet-class>cn.oppotm.servlet.BuyServlet
+   		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   		<servlet-name>BuyServlet</servlet-name>
+   		<url-pattern>/BuyServlet</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   		<servlet-name>AddCartServlet
+   		</servlet-name>
+   		<servlet-class>cn.oppotm.servlet.AddCartServlet
+   		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   		<servlet-name>AddCartServlet</servlet-name>
+   		<url-pattern>/AddCartServlet</url-pattern>
+   </servlet-mapping>
+   <servlet>
+   		<servlet-name>BuyNowServlet
+   		</servlet-name>
+   		<servlet-class>cn.oppotm.servlet.BuyNowServlet
+   		</servlet-class>
+   </servlet>
+   <servlet-mapping>
+   		<servlet-name>BuyNowServlet</servlet-name>
+   		<url-pattern>/BuyNowServlet</url-pattern>
+   </servlet-mapping>
   
   
   

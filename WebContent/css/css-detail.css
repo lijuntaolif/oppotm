@@ -1,0 +1,261 @@
+@CHARSET "UTF-8";
+/*图片和信息*/
+*｛
+margin:0 auto;
+padding:0;
+｝
+div.imgAndInfo {
+	margin: 40px 20px;
+	width:1300px;
+	weight:auto;
+	
+	
+}
+
+/*图片部分*/
+div.imgInimgAndInfo {
+	width: 400px;
+	float: left;
+	margin-left: 150px;
+	height:400px;
+}
+
+/*大图*/
+div.imgAndInfo img.bigImg {
+	width: 400px;
+	height: 400px;
+	padding: 20px;
+	border: 1px solid #F2F2F2;
+}
+
+/*小图div*/
+div.imgAndInfo div.smallImageDiv {
+	width: 440px;
+	
+	height:85px;
+}
+
+/*小图*/
+div.imgAndInfo img.smallImage {
+	width: 84px;
+	height: 84px;
+	border: 2px solid white;
+	float: left;
+}
+
+/*鼠标经过加黑框*/
+div.imgAndInfo img.smallImage:hover {
+	border: 2px solid black;
+}
+
+.infoInimgAndInfo {
+	padding: 0px 20px;
+	overflow: hidden;
+}
+
+/*信息部分*/
+div.infoInimgAndInfo {
+	padding: 0px 20px;
+	overflow: hidden;
+	margin-left: 500px;
+	margin-top:-500px;
+	width: 500px;
+	float:left;
+	
+}
+
+/*标题*/
+div.infoInimgAndInfo div.productTitle {
+	color: black;
+	font-size: 16px;
+	font-weight: bold;
+	margin: 0px 10px;
+}
+
+/*聚划算*/
+div.infoInimgAndInfo div.juhuasuan {
+	background-color: #2DA77A;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	margin-top: 20px;
+}
+
+div.infoInimgAndInfo span.juhuasuanBig {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Arial;
+}
+
+div.infoInimgAndInfo span.juhuasuanTime {
+	color: #FFC057;
+	font-weight: bold;
+}
+
+/*购物券*/
+div.infoInimgAndInfo div.gouwujuanDiv {
+	margin-top: 10px;
+}
+
+div.infoInimgAndInfo div.originalDiv {
+	margin-top: 10px;
+}
+
+div.infoInimgAndInfo div.promotionDiv {
+	margin-top: 0px;
+}
+
+div.infoInimgAndInfo div.productPriceDiv {
+	background-image: url(../../img/site/priceBackground.png);
+	height: 102px;
+	
+	color: #666666;
+}
+
+div.infoInimgAndInfo span.originalPriceDesc {
+	color: #999999;
+	display: inline-block;
+	width: 68px;
+}
+
+div.infoInimgAndInfo span.promotionPriceDesc {
+	color: #999999;
+	display: inline-block;
+	width: 68px;
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
+
+div.infoInimgAndInfo span.originalPriceYuan {
+	font-family: Arial;
+	font-size: 12px;
+}
+
+div.infoInimgAndInfo span.originalPrice {
+	font-family: Arial;
+	font-size: 12px;
+	color: #333333;
+	text-decoration: line-through;
+}
+
+div.infoInimgAndInfo span.promotionPriceYuan {
+	font-family: Arial;
+	font-size: 18px;
+	color: #C40000;
+}
+
+div.infoInimgAndInfo span.promotionPrice {
+	color: #c40000;
+	font-family: Arial;
+	font-size: 30px;
+	font-weight: bold;
+}
+
+/*购买数量*/
+div.productNumber {
+	font-size: 12px;
+}
+
+div.productNumber span.arrow {
+	display: inline-block;
+	width: 22px;
+	height: 10px;
+	vertical-align: top;
+}
+
+div.productNumber span.updown img {
+	display: inline-block;
+	vertical-align: top;
+}
+
+div.productNumber span.updown {
+	border: 1px solid #999;
+	display: block;
+	width: 20px;
+	height: 7px;
+	text-align: center;
+	padding-top: 4px;
+}
+
+div.productNumber span.updownMiddle {
+	height: 4px;
+	display: block;
+}
+
+div.infoInimgAndInfo div.productSaleAndReviewNumber div {
+	display: inline-block;
+	width: 49%;
+	text-align: center;
+	color: #999999;
+	font-size: 12px;
+}
+
+div.infoInimgAndInfo div.productSaleAndReviewNumber div:first-child {
+	border-right-width: 1px;
+	border-right-style: solid;
+	border-right-color: #E5DFDA;
+}
+
+div.infoInimgAndInfo div.productNumber {
+	color: #999999;
+}
+
+div.infoInimgAndInfo span.productNumberSettingSpan {
+	border: 1px solid #999;
+	display: inline-block;
+	width: 30px;
+	height: 15px;
+	padding: 7px 0;
+}
+
+div.infoInimgAndInfo input.productNumberSetting {
+	border: 0px;
+	height: 80%;
+	width: 80%;
+}
+
+/*购买按钮*/
+button.buyButton {
+	border: 1px solid #C40000;
+	width:100px;
+	background-color: #FFEDED;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	color: #C40000;
+	font-family: arial, '宋体', \5b8b\4f53, sans-serif;
+	margin-right: 50px;
+	
+}
+
+/*加入购物车*/
+button.addCartButton {
+	width:100px;
+	border: 1px solid #C40000;
+	background-color: #C40000;
+	text-align: center;
+	line-height: 40px;
+	font-size: 16px;
+	margin-top: 100px;
+	margin-left:100px;
+	color: white;
+	font-family: arial, '宋体', \5b8b\4f53, sans-serif;
+}
+/*产品参数*/
+.underdetail {
+	margin-left: 150px;
+	width:800px;
+	
+	
+}
+.good_detail{
+color:red;
+margin-top:10px;
+margin-bottom:10px;
+font-size:30px;
+}
+
+.underdetailimg{
+margin-top:-5px;
+}

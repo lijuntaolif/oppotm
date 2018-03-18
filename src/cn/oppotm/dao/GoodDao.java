@@ -142,5 +142,33 @@ public class GoodDao {
 		}
 		return list;
 	}
+	/**
+	 * 根据商品id查找商品
+	 * @param good_id
+	 * @return good
+	 */
+	public Good selectByGoodid(int good_id){
+		Good good=new Good();
+		conn=DBUtils.getconn();
+		String sql="select * from good where good_id=?";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, good_id);
+			rs=pstmt.executeQuery();
+			while(rs.next()){
+				good.setGood_id(good_id);
+				good.setGood_name(rs.getString("good_name"));
+				good.setDiscountedPrice(rs.getInt("DiscountedPrice"));
+				good.setGood_type(rs.getString("Good_type"));
+				good.setOriginalPrice(rs.getInt("OriginalPrice"));
+				good.setIntroduce(rs.getString("Introduce"));
+				good.setInventory(rs.getInt("Inventory"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return good;
+	}
 
 }

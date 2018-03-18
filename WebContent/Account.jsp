@@ -1,3 +1,4 @@
+<%@page import="cn.oppotm.entity.UnfinishedForm"%>
 <%@page import="cn.oppotm.dao.ImageDao"%>
 <%@page import="cn.oppotm.entity.Good"%>
 <%@page import="java.util.List"%>
@@ -10,431 +11,19 @@
 
     <title>结算页面</title>
     <style>
-        *{
-            margin: 0 auto;
-            padding: 0;
-        }
-       #middle{
-           width: 1000px;
-           height: auto;
-           background-color: #E5E5E5;
-
-           font-size: 15px;
-       }
-        #middle_top{
-            width: 1000px;
-            height: 40px;
-            margin-top: 50px;
-            background-color:#F3F8FE;
-            margin-left: 0px;
-            font-size: 20px;
-            color: #014D7F;
-            line-height: 40px;
-
-        }
-        #middle_info{
-            width: 1000px;
-            height: 200px;
-
-
-        }
-        #mi1{
-            width: 600px;
-            height: 90px;
-            margin-left: 0px;
-            margin-top: 20px;
-        }
-        #mi1_left{
-            width: 90px;
-            height: 90px;
-
-            text-align: right;
-
-            float: left;
-        }
-        #mi1_left span i{
-            color: red;
-        }
-        #mi1_right{
-            width: 490px;
-            height: 90px;
-
-            float: left;
-            margin-left: 10px;
-        }
-       
-        #mi2{
-            width: 500px;
-            height: 25px;
-
-            line-height: 25px;
-            margin-left: 0px;
-        }
-        #mi2_left{
-            width:90px;
-            height:25px;
-            float: left;
-            text-align: right;
-        }
-        #mi2_right{
-            width: 400px;
-            height: 25px;
-
-            float: left;
-            margin-left: 10px;
-        }
-        #mi2_right input{
-            width: 250px;
-            height: 19px;
-
-        }
-        #mi3{
-            width: 500px;
-            height: 25px;
-
-            line-height: 25px;
-            margin-left: 0px;
-            margin-top: 10px;
-        }
-        #mi3_left{
-            width:90px;
-            height:25px;
-            float: left;
-            text-align: right;
-        }
-        #mi3_left span i{
-            color: red;
-        }
-        #mi3_right{
-            width: 400px;
-            height: 25px;
-
-            float: left;
-            margin-left: 10px;
-        }
-        #mi3_right input{
-            width: 250px;
-            height: 19px;
-
-        }
-        #mi4{
-            width: 500px;
-            height: 25px;
-
-            line-height: 25px;
-            margin-left: 0px;
-            margin-top: 10px;
-        }
-        #mi4_left{
-            width:90px;
-            height:25px;
-            float: left;
-            text-align: right;
-        }
-        #mi4_left span i{
-            color: red;
-        }
-        #mi4_right{
-            width: 400px;
-            height: 25px;
-
-            float: left;
-            margin-left: 10px;
-        }
-        #mi4_right input{
-            width: 250px;
-            height: 19px;
-
-        }
-        #middle_foot{
-            width:1000px ;
-            height: auto;
-            margin-top: 10px;
-        }
-        #mf_h{
-            width: 1000px;
-            height: 40px;
-            margin-top: 50px;
-            background-color:#F3F8FE;
-            margin-left: 0px;
-            font-size: 20px;
-            color: #014D7F;
-            line-height: 40px;
-        }
-        .mf_middle{
-            width: 1000px;
-            height: auto;
-            font-size: 5px;
-        }
-        .mf_middle_head{
-
-            width: 1000px;
-            height: 50px;
-            text-align: left;
-            line-height: 50px;
-        }
-        .mf_mh1{
-            float: left;
-            width: 150px;
-        }
-        .mf_mh2{
-            float: left;
-            width: 395px;
-
-
-        }
-        .mf_mh3{
-            float: left;
-            width: 125px;
-        }
-        .mf_mh4{
-            float: left;
-            width: 125px;
-        }
-        .mf_mh5{
-            float: left;
-            width: 125px;
-        }
-        .mf_mh6{
-            float: left;
-            width: 80px;
-        }
-        .mf_middle_middle{
-            width: 998px;
-            height:125px ;
-
-            text-align: left;
-
-            border: 1px solid #CCCCCC;
-
-        }
-        .mf_mm1{
-            float: left;
-            width: 150px;
-            background-color: #faf2b5;
-            height:125px ;
-            line-height: 125px;
-
-        }
-        .mm1_input{
-            float: left;
-            margin-left: 5px;
-        }
-        .mm1_img{
-            margin-top: 20px;
-            float: left;
-        }
-        .mf_mm2{
-            float: left;
-            width: 395px;
-            height: 125px;
-
-
-
-        }
-        .mf_mm2 a{
-            text-decoration: none;
-            color: black;
-
-        }
-        .mf_mm2_a{
-            height: 80px;
-            width: 395px;
-            line-height: 70px;
-        }
-        .mf_mm2_img{
-            height: 24px;
-            width: 300px;
-            margin-top: 1px;
-            margin-left: 0px;
-
-        }
-
-        .mf_mm3{
-            float: left;
-            width: 125px;
-            height: 125px;
-            font-size: 14px;
-            line-height: 125px;
-
-        }
-
-        .mf_mm4{
-            float: left;
-            width: 125px;
-            line-height: 125px;
-        }
-        .mf_mm5{
-            float: left;
-            width: 125px;
-            font-size: 15px;
-            color: red;
-            line-height: 125px;
-        }
-
-        .mf_mm6{
-            float: left;
-            width: 78px;
-            line-height: 125px;
-            margin-top:50px;
-        }
-        .mm6 span{
-            color: #999999;
-        }
-        .mf_middle_footer{
-            width: 1000px;
-            height:50px;
-            background-color: #E5E5E5;
-            margin-top: 20px;
-        }
-        .mf_middle{
-        	font-size:13px;
-        }
-        .mf_mf1{
-            height:50px;
-            width: 50px;
-            line-height: 50px;
-            float: left;
-        }
-        .mf_mf2{
-            height:50px;
-            width: 500px;
-            line-height: 50px;
-            margin-left: 350px;
-            float: left;
-            font-size: 13px;
-            text-align: right;
-        }
-        .mf_mf2 span{
-            color: red;
-            font-size: 17px;
-        }
-        .mf_mf3{
-            height:50px;
-            width: 100px;
-            line-height: 50px;
-            float: right;
-            text-align: left;
-            font-size: 20px;
-            color:white;
-            text-align: center;
-            background-color: #AAAAAA;
-
-        }
-        .mf_mf3 input{
-            font-size: 20px;
-            height:50px;
-            width: 100px;
-            background-color: #C40000;
-            color:white;
-            border: 0px;
-        }
-        #mil_right_d{
-            color: red;
-           display: inline;
-        }
-        #mi2_right_div{
-            color: red;
-            display: inline;
-        }
-        #mi3_right_div{
-            color: red;
-            display: inline;
-        }
-        #mi4_right_div{
-            color: red;
-            display: inline;
-        }
-
-
+        
     </style>
+     <link rel="stylesheet" href="css/css-account.css" type="text/css">
+  	 <link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
+  
     <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        function checkaddr(){
-            var addr=$("textarea[name=deAddr]").val();
-            
-            if(addr==""){
-            	$("#mil_right_d").html("地址不能为空");
-                return false;
-            }else{
-            	$("#mil_right_d").html("<img src='image/duigou2.png' width='15px' height='15px'>");
-                return true;
-            }
-        }
-        function checkpost(){
-            var post=$("input[name=post]").val();
-            var span=$("#mi2_right_div");
-            if(post.length!=6||isNaN(post)){
-                span.html("邮编不正确");
-                return false;
-            }else{
-                span.html("<img src='image/shopcart/duigou2.png' width='15px' height='15px' style='text-align: center'>");
-                return true;
-            }
-        }
-        function checkname(){
-            var name=$("input[name=name]").val();
-            var div=$("#mi3_right_div");
-            if(name.length<1||name.length>10){
-                div.html("姓名长度不得超过10");
-                if(name==""){
-                    div.html("姓名不能为空");
-                    return false;
-                }
-                return false;
-            }else{
-                div.html("<img src='image/shopcart/duigou2.png' width='15px' height='15px' style='text-align: center'>");
-                return true;
-            }
-        }
-        function checkphone(){
-            var phone=$("input[name=phone]").val();
-            var div=$("#mi4_right_div");
-            if(phone.length!=11||isNaN(phone)){
-                div.html("请正确输入手机号");
-                return false;
-            }else{
-                div.html("<img src='image/shopcart/duigou2.png' width='15px' height='15px' style='text-align: center'>");
-                return true;
-            }
-        }
-      
-       
-
-        $(function(){
-            $(".mf_mm2_a a").mouseover(function(){
-                $(this).css({"color":"#FF6600","text-decoration":"underline"});
-            });
-            $(".mf_mm2_a a").mouseout(function(){
-                $(this).css({"color":"black","text-decoration":"none"});
-            });
-            $("#mi1_right textarea").blur(checkaddr);
-            $("#mi2_right input").blur(checkpost);
-            $("#mi3_right input").blur(checkname);
-            $("#mi4_right input").blur(checkphone);
-            $("form").submit(function(){
-                var flag=true;
-                if(checkaddr()==false){
-                    flag=false;
-                }
-                if(checkpost()==false){
-                    flag=false;
-                }
-                if(checkname()==false){
-                    flag=false;
-                }
-                if(checkphone()==false){
-                    flag=false;
-                }
-                return flag;
-            });
-
-        });
-
-
-    </script>
+    <script src="js/account.js" type="text/javascript"></script>
+   	
 </head>
 <body>
+	
+
+
     <div id="middle">
         <form action="account" method="post">
         <div id="middle_top">
@@ -446,7 +35,7 @@
             <div id="mi1">
                 <div id="mi1_left"> <span>详细地址<i>*</i></span></div>
                 <div id="mi1_right">
-                    <textarea name="address" style="background-color: #F5F5F5"  rows="5" cols="50" name="deAddr" placeholder="建议您如实填写详细地址，如街道名称，楼层号码，楼层和房间号等信息"></textarea>
+                    <textarea name="address" style="background-color: #F5F5F5"  rows="5" cols="30" name="deAddr" placeholder="建议您如实填写详细地址，如街道名称，楼层号码，楼层和房间号等信息"></textarea>
                     <div id="mil_right_d"></div>
                 </div>
             </div>
@@ -482,28 +71,9 @@
                     <div class="mf_mh6">配送方式</div>
                 </div>
                 <%
-                	List<Good> good_list=(List<Good>)session.getAttribute("good_list");
-                	String[] str=request.getParameterValues("choose");
-                	String[] good_num=request.getParameterValues("good_num");
-                	String[] goodpaytol=request.getParameterValues("goodpaytol");
-                	
-                
-                
-                	int t=0;
-                	
-                	for(int i=0;str!=null&&i<str.length;i++){
-                		
-            		
-                			int num=Integer.parseInt(good_num[i-t]);
-                			if(num==0){
-                				t++;
-                				continue;
-                			}
-                			int goodpay=Integer.parseInt(goodpaytol[i-t]);
-                    		Good good=new Good();
-                    		good=good_list.get(i-t);
-                    		ImageDao imageDao=new ImageDao();
-                    		
+                	List<UnfinishedForm> list=(List<UnfinishedForm>)request.getAttribute("ufForms");
+                    	for(int i=0;i<list.size();i++){
+                    		UnfinishedForm uForm=list.get(i);
                 		
                 		
                 		%>
@@ -512,12 +82,12 @@
                     <div class="mf_mm1">
                         <div class="mm1_input"></div>
                         <div class="mm1_img">
-                            <img src="<%=imageDao.getFirstImage(good.getGood_id()) %>" width="120px" height="80px">
+                            <img src="<%=uForm.getImage_name()%>" width="120px" height="80px">
                         </div>
                     </div>
                     <div class="mf_mm2">
-                        <div class="mf_mm2_a"><a href="#"><%=good.getIntroduce() %></a>
-                        <input type="hidden" name="good_id" value="<%=good.getGood_id()%>">
+                        <div class="mf_mm2_a"><a href="#"><%=uForm.getIntroduce()%></a>
+                        <input type="hidden" name="good_id" value="<%=uForm.getGood_id()%>">
                         </div>
                         <div class="mf_mm2_img">
                             <img src="image/shopcart/gwbiao1.png" width="20px" height="20px" alt="">
@@ -528,13 +98,13 @@
 
                     </div>
                     <div class="mf_mm3">
-                        <p class="mm3p2">￥<%=good.getDiscountedPrice() %></p>
+                        <p class="mm3p2">￥<%=uForm.getDiscountedPrice() %></p>
                     </div>
-                    <div class="mf_mm4"><%=num %>
-                    <input type="hidden" name="num" value="<%=num %>">
+                    <div class="mf_mm4"><%=uForm.getNum() %>
+                    <input type="hidden" name="num" value="<%=uForm.getNum() %>">
                     </div>
-                    <div class="mf_mm5">￥<%=goodpay %>
-                     <input type="hidden" name="goodpay" value="<%=goodpay %>">
+                    <div class="mf_mm5">￥<%=uForm.getPay() %>
+                     <input type="hidden" name="goodpay" value="<%=(int)uForm.getPay() %>">
                     </div>
                     <div class="mf_mm6">
                         <select id="express" name="express">
@@ -553,9 +123,9 @@
                 
                 %>
                 <%	
-                	String strSum=request.getParameter("allcountnum");
-                	String strPay=request.getParameter("allcountpay");
-                
+            	String strSum=(String)request.getAttribute("strSum");
+            	String strPay=(String)request.getAttribute("strPay");
+            
                 	%>
                 		<div class="mf_middle_footer">
                      		<div class="mf_mf1"></div>
@@ -575,6 +145,144 @@
         </div>
         </form>
     </div>
+	<!--首页footer开始-->
+<div class="bottom_table">
+    <table cellspacing="30" cellpadding="0" border="0">
+        <tr>
+            <td>
+                <div class="bor 1">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu01.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">品质保证 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">品质护航购物无忧</span>
 
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor 2">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu02.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">七天无理由退货 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">为你提供无忧售后保障</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor 3">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu03.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">特殊服务体验 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">为你呈现不一样的服务</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor4">
+
+
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu04.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">帮助中心 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">你的购物指南</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="bottom_foot">
+        <div class="bottom_foot0"></div>
+        <div class="bottom_foot1">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>购物指南</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">免费注册 <br/>开通支付宝 <br/>支付宝充值</span>
+        </div>
+        <div class="bottom_foot2">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>天猫保障</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">发票保障 <br/>售后规则 <br/>缺货赔付</span>
+
+        </div>
+        <div class="bottom_foot3">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>支付方式</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">支付宝快捷支付 <br/>支付宝余额支付 <br/>支付宝钱包付款 <br/>货到付款 <br/>新人支付</span>
+        </div>
+        <div class="bottom_foot4">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>商家服务</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">商家入驻 <br/>商家中心 <br/>天猫智库 <br/> 天猫规则 <br/>物流服务 <br/>喵言喵语 <br/>运营服务</span>
+        </div>
+        <div class="bottom_foot5">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>手机服务</lable>
+            <br/>
+            <img src="image/shouye/footer/erweima.png" alt=""/>
+        </div>
+    </div>
+
+
+</div>
+<div class="logo_tm">
+    <div class="logo_tm1">
+        <img src="image/shouye/footer/logo_tianmao.png" alt=""/>
+    </div>
+</div>
+<div class="last">
+    <table cellpadding="0" cellspacing="15" align="center">
+        <tr>
+            <td align="left" >
+                <div class="t1" >
+                    <br/>
+                    关于天猫&nbsp;帮助中心&nbsp;诚聘英才&nbsp;联系我们&nbsp;网站合作&nbsp;法律声明 &nbsp;廉政举报
+                    <br/>
+                    <br/>
+                    阿里巴巴集团|淘宝网|天猫|聚划算|全球速卖通|阿里巴巴国际交易市场|1688|阿里妈妈|阿里旅行|阿里云计算|YunOS|阿里通信|万网|高德|优酷|友盟|酷盘|虾米|天天动听|来往|钉 <br/>
+                    <br/>
+                    钉|11Main|支付宝
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="t2">
+                    增值电信业务经营许可证：浙B2-20110446 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;互联网医疗保健信息服务&nbsp;审核同意书&nbsp;浙卫网申[2012]6号
+                    <br/> <br/>
+                    互联网药品信息服务资质证书编号:浙-（经营性）-2012-0005 <br/><br/>
+                    @2003-2015  TMALLCOM版权所有
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/shouye/footer/renzheng_01.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="image/shouye/footer/renzheng_02.png" alt=""/>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--首页footer结束-->
 </body>
 </html>

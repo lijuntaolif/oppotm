@@ -1,0 +1,83 @@
+     
+        /*首页footer开始*/
+        .bottom_table{
+            width: 1300px;
+            height: 335px;
+
+            background-color: white;
+        }
+        .bottom_table .bor{
+            border-right: 1px solid #F5F5F5;
+            width: 250px;
+
+        }
+        .bottom_table .bor4{
+            width: 250px;
+        }
+
+        /*下部第一个表格结束*/
+        .bottom_foot{
+            height: 200px;
+            width: 1190px;
+            background-color: white;
+            border-top:1px solid #F5F5F5;
+        }
+        .bottom_foot0{
+            height: 200px;
+            width: 110px ;
+            float: left;
+        }
+        .bottom_foot1{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot2{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot3{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot4{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+        .bottom_foot5{
+            height: 200px;
+            width: 215px;
+
+            float: left;
+        }
+
+        .logo_tm{
+            width: 1300px;
+            height: 24px;
+            background-color: white;
+            border-bottom: 3px solid #C31511;
+        }
+        .logo_tm1{
+            margin-left: 160px;
+        }
+        .last{
+            width: 1300px;
+            height: 300px;
+            background-color: black;
+        }
+        .last .t1{
+            color: white;
+            font-size: 13px;
+        }
+        .last .t2{
+            color: #8E8B86;
+            font-size: 13px;
+        }
+        /*首页footer结束*/

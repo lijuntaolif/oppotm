@@ -1,0 +1,336 @@
+@CHARSET "UTF-8";
+*{
+            margin: 0 auto;
+            padding: 0;
+        }
+       #middle{
+           width: 1000px;
+           height: auto;
+           background-color: #E5E5E5;
+
+           font-size: 15px;
+       }
+        #middle_top{
+            width: 1000px;
+            height: 40px;
+            margin-top: 50px;
+            background-color:#F3F8FE;
+            margin-left: 0px;
+            font-size: 20px;
+            color: #014D7F;
+            line-height: 40px;
+
+        }
+        #middle_info{
+            width: 1000px;
+            height: 200px;
+
+
+        }
+        #mi1{
+            width: 600px;
+            height: 90px;
+            margin-left: 0px;
+            margin-top: 20px;
+        }
+        #mi1_left{
+            width: 90px;
+            height: 90px;
+
+            text-align: right;
+
+            float: left;
+        }
+        #mi1_left span i{
+            color: red;
+        }
+        #mi1_right{
+            width: 490px;
+            height: 90px;
+            float: left;
+            margin-left: 10px;
+        }
+      
+        #mi2{
+            width: 500px;
+            height: 25px;
+
+            line-height: 25px;
+            margin-left: 0px;
+        }
+        #mi2_left{
+            width:90px;
+            height:25px;
+            float: left;
+            text-align: right;
+        }
+        #mi2_right{
+            width: 400px;
+            height: 25px;
+
+            float: left;
+            margin-left: 10px;
+        }
+        #mi2_right input{
+            width: 250px;
+            height: 19px;
+
+        }
+        #mi3{
+            width: 500px;
+            height: 25px;
+
+            line-height: 25px;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+        #mi3_left{
+            width:90px;
+            height:25px;
+            float: left;
+            text-align: right;
+        }
+        #mi3_left span i{
+            color: red;
+        }
+        #mi3_right{
+            width: 400px;
+            height: 25px;
+
+            float: left;
+            margin-left: 10px;
+        }
+        #mi3_right input{
+            width: 250px;
+            height: 19px;
+
+        }
+        #mi4{
+            width: 500px;
+            height: 25px;
+
+            line-height: 25px;
+            margin-left: 0px;
+            margin-top: 10px;
+        }
+        #mi4_left{
+            width:90px;
+            height:25px;
+            float: left;
+            text-align: right;
+        }
+        #mi4_left span i{
+            color: red;
+        }
+        #mi4_right{
+            width: 400px;
+            height: 25px;
+
+            float: left;
+            margin-left: 10px;
+        }
+        #mi4_right input{
+            width: 250px;
+            height: 19px;
+
+        }
+        #middle_foot{
+            width:1000px ;
+            height: auto;
+            margin-top: 10px;
+        }
+        #mf_h{
+            width: 1000px;
+            height: 40px;
+            margin-top: 50px;
+            background-color:#F3F8FE;
+            margin-left: 0px;
+            font-size: 20px;
+            color: #014D7F;
+            line-height: 40px;
+        }
+        .mf_middle{
+            width: 1000px;
+            height: auto;
+            font-size: 5px;
+        }
+        .mf_middle_head{
+
+            width: 1000px;
+            height: 50px;
+            text-align: left;
+            line-height: 50px;
+        }
+        .mf_mh1{
+            float: left;
+            width: 150px;
+        }
+        .mf_mh2{
+            float: left;
+            width: 395px;
+
+
+        }
+        .mf_mh3{
+            float: left;
+            width: 125px;
+        }
+        .mf_mh4{
+            float: left;
+            width: 125px;
+        }
+        .mf_mh5{
+            float: left;
+            width: 125px;
+        }
+        .mf_mh6{
+            float: left;
+            width: 80px;
+        }
+        .mf_middle_middle{
+            width: 998px;
+            height:125px ;
+
+            text-align: left;
+
+            border: 1px solid #CCCCCC;
+
+        }
+        .mf_mm1{
+            float: left;
+            width: 150px;
+            background-color: #faf2b5;
+            height:125px ;
+            line-height: 125px;
+
+        }
+        .mm1_input{
+            float: left;
+            margin-left: 5px;
+        }
+        .mm1_img{
+            margin-top: 20px;
+            float: left;
+        }
+        .mf_mm2{
+            float: left;
+            width: 395px;
+            height: 125px;
+
+
+
+        }
+        .mf_mm2 a{
+            text-decoration: none;
+            color: black;
+
+        }
+        .mf_mm2_a{
+            height: 80px;
+            width: 395px;
+            line-height: 70px;
+        }
+        .mf_mm2_img{
+            height: 24px;
+            width: 300px;
+            margin-top: 1px;
+            margin-left: 0px;
+
+        }
+
+        .mf_mm3{
+            float: left;
+            width: 125px;
+            height: 125px;
+            font-size: 14px;
+            line-height: 125px;
+
+        }
+
+        .mf_mm4{
+            float: left;
+            width: 125px;
+            line-height: 125px;
+        }
+        .mf_mm5{
+            float: left;
+            width: 125px;
+            font-size: 15px;
+            color: red;
+            line-height: 125px;
+        }
+
+        .mf_mm6{
+            float: left;
+            width: 78px;
+            line-height: 125px;
+            margin-top:50px;
+        }
+        .mm6 span{
+            color: #999999;
+        }
+        .mf_middle_footer{
+            width: 1000px;
+            height:50px;
+            background-color: #E5E5E5;
+            margin-top: 20px;
+        }
+        .mf_middle{
+        	font-size:13px;
+        }
+        .mf_mf1{
+            height:50px;
+            width: 50px;
+            line-height: 50px;
+            float: left;
+        }
+        .mf_mf2{
+            height:50px;
+            width: 500px;
+            line-height: 50px;
+            margin-left: 350px;
+            float: left;
+            font-size: 13px;
+            text-align: right;
+        }
+        .mf_mf2 span{
+            color: red;
+            font-size: 17px;
+        }
+        .mf_mf3{
+            height:50px;
+            width: 100px;
+            line-height: 50px;
+            float: right;
+            text-align: left;
+            font-size: 20px;
+            color:white;
+            text-align: center;
+            background-color: #AAAAAA;
+
+        }
+        .mf_mf3 input{
+            font-size: 20px;
+            height:50px;
+            width: 100px;
+            background-color: #C40000;
+            color:white;
+            border: 0px;
+        }
+        #mil_right_d{
+           color: red;
+           display: inline;
+        }
+        #mi2_right_div{
+            color: red;
+            display: inline;
+        }
+        #mi3_right_div{
+            color: red;
+            display: inline;
+        }
+        #mi4_right_div{
+            color: red;
+            display: inline;
+        }
+

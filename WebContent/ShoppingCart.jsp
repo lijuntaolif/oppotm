@@ -9,418 +9,102 @@
 <head>
     <meta charset="UTF-8">
     <title>购物车</title>
-    <style type="text/css">
-        *{
-            margin: 0px auto;
-            padding: 0px;
-            font-size: 12px;
-        }
-        .middle{
-            width: 1000px;
-
-            height: auto;
-            font-size: 5px;
-        }
-        .middle_head{
-
-            width: 1000px;
-            height: 50px;
-            text-align: left;
-            line-height: 50px;
-        }
-        .mh1{
-            float: left;
-            width: 150px;
-        }
-        .mh2{
-            float: left;
-            width: 395px;
-
-
-        }
-        .mh3{
-            float: left;
-            width: 125px;
-        }
-        .mh4{
-            float: left;
-            width: 125px;
-        }
-        .mh5{
-            float: left;
-            width: 125px;
-        }
-        .mh6{
-            float: left;
-            width: 80px;
-        }
-        .middle_middle{
-            width: 998px;
-            height:125px ;
-
-            text-align: left;
-
-            border: 1px solid #CCCCCC;
-
-        }
-        .mm1{
-            float: left;
-            width: 150px;
-            background-color: #faf2b5;
-            height:125px ;
-            line-height: 125px;
-
-        }
-        .mm1_input{
-            float: left;
-            margin-left: 5px;
-             margin-top:55px;
-        }
-        .mm1_img{
-            margin-top: 20px;
-            float: left;
-        }
-        .mm2{
-            float: left;
-            width: 395px;
-            height: 125px;
-
-
-
-        }
-        .mm2 a{
-            text-decoration: none;
-            color: black;
-
-        }
-        .mm2_a{
-            height: 80px;
-            width: 395px;
-            line-height: 70px;
-        }
-        .mm2_img{
-            height: 24px;
-            width: 300px;
-            margin-top: 1px;
-            margin-left: 0px;
-
-        }
-
-        .mm3{
-            float: left;
-            width: 125px;
-            height: 125px;
-            font-size: 14px;
-
-        }
-        .mm3p1{
-            color: #CCCCCC;
-            text-decoration: line-through;
-            margin-top: 45px;
-        }
-
-        .mm4{
-            float: left;
-            width: 125px;
-           line-height: 125px;
-        }
-        .mm5{
-            float: left;
-            width: 125px;
-            font-size: 15px;
-            color: red;
-            line-height: 125px;
-        }
-
-        .mm6{
-            float: left;
-            width: 78px;
-            line-height: 125px;
-
-        }
-        .mm6 p{
-            color: #999999;
-            text-decoration: none;
-        }
-        .middle_footer{
-            width: 1000px;
-            height:50px;
-            background-color: #E5E5E5;
-            margin-top: 20px;
-        }
-        .mf1{
-            height:50px;
-            width: 50px;
-            line-height: 50px;
-            float: left;
-        }
-        .mf2{
-            height:50px;
-            width: 500px;
-            line-height: 50px;
-            margin-left: 350px;
-            float: left;
-            font-size: 13px;
-            text-align: right;
-        }
-        .mf2 span{
-            color: red;
-            font-size: 17px;
-        }
-        .mf2 span i{
-            font-size: 17px;
-        }
-        .mf3{
-            height:50px;
-            width: 100px;
-            line-height: 50px;
-            float: right;
-            text-align: left;
-            font-size: 20px;
-            color:white;
-            text-align: center;
-            background-color: #AAAAAA;
-
-        }
-        .mf3 input{
-            height:50px;
-            width: 100px;
-            line-height: 50px;
-            background-color: #AAAAAA;
-            font-size: 20px;
-            border: 0px;
-        }
-
-        .orderIteNumberSetting{
-            width: 30px;
-            height: 17px;
-
-        }
-        .mm4 a{
-            text-decoration: none;
-            font-size: 15px;
-            width: 15px;
-            height: 15px;
-            border: 1px solid bisque;
-        }
-    </style>
+   
+    <link rel="stylesheet" href="css/css-main-top.css" type="text/css">
+    <link rel="stylesheet" href="css/css-shoppingCart.css" type="text/css">
+    
+    <link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
+ 
     <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
-    <script type="text/javascript">
-
-
-        <!--计算本件商品的总价格-->
-        function synchronizationPrice(good_id,discountedPrice,num){
-            var pay=discountedPrice*num;
-
-            $(".goodspaytol[good_id="+good_id+"]").html(pay);
-            $(".mm5 input[good_id="+good_id+"]").val(pay);
-
-        }
-
-        <!--同步计数和计算总金额-->
-        function  synccountnum(){
-            var sum=0;
-            var pay=0;
-            $("input[name2='choose']:checked").each(function(){
-                var good_id=$(this).attr("good_id");
-                var price=$(".goodspaytol[good_id="+good_id+"]").text();
-                pay += new Number(price);
-                var num=$(".orderIteNumberSetting[good_id="+good_id+"]").attr("value");
-                sum += new Number(num)
-            });
-
-            $(".mf2_span1").html(sum);
-            $(".mf2 i").html(pay);
-            $(".mf2_input1").val(sum);
-            $(".mf2_input2").val(pay);
-        }
-        <!--测试能否提交-->
-        function checkSubmit(){
-            var sum=$(".mf2 i").text();
-
-            if(sum==0){
-                $(".mf3 input").css("background-color","#AAAAAA");
-                return false;
-
-            }else{
-                $(".mf3 input").css("background-color","red");
-                return true;
-            }
-        }
-
-
-
-
-
-
-        $(function(){
-            <!--测试能否提交-->
-            $("form").submit(function(){
-                var flag=false;
-                if(checkSubmit()==true){
-
-                    flag=true;
-
-                }
-                return flag;
-
-
-            });
-            <!--鼠标移动到介绍上-->
-            $(".mm2 a").mouseover(function(){
-                        $(this).css({"color":"#FF6600","text-decoration":"underline"});
-                    });
-            $(this).mouseout(function(){
-                        $(".mm2 a").css({"color":"black","text-decoration":"none"});
-                    });
-
-            $(".mm6 p").hover(
-                    function(){
-                        $(this).css("color","red");
-                    },function(){
-                        $(this).css("color","#999999");
-                    }
-            );
-            <!--点击上部全选-->
-            $(".mh1 input").click(function(){
-                var chooses=document.getElementsByName("choose");
-
-                for(var i=0;i<chooses.length;i++){
-                    chooses[i].checked=document.getElementById("chooseAll1").checked;
-                    if(i!=0&&i!=chooses.length-1){
-                        if(chooses[i].checked){
-                            $(chooses[i]).parent().parent().parent().css("background-color","#FFF8E1");
-                            synccountnum();
-                            checkSubmit();
-
-
-                        }else{
-                            $(chooses[i]).parent().parent().parent().css("background-color","white");
-                            synccountnum();
-                            checkSubmit();
-
-
-                        }
-                    }
-
-                }
-
-            });
-            <!--点击下部全选-->
-            $(".mf1 input").click(function(){
-                var chooses=document.getElementsByName("choose");
-                for(var i=0;i<chooses.length;i++){
-                    chooses[i].checked=document.getElementById("chooseAll2").checked;
-                    if(i!=0&&i!=chooses.length-1){
-                        if(chooses[i].checked){
-                            $(chooses[i]).parent().parent().parent().css("background-color","#FFF8E1");
-                            synccountnum();
-                            checkSubmit();
-
-                        }else{
-                            $(chooses[i]).parent().parent().parent().css("background-color","white");
-                            synccountnum();
-                            checkSubmit();
-                        }
-                    }
-                }
-
-            });
-            <!--点击单个选择框-->
-            $(".mm1_input input").click(function(){
-                var choose=$(this).is(':checked');
-                if(choose){
-                    $(this).parent().parent().parent().css("background-color","#FFF8E1");
-                    synccountnum();
-                    checkSubmit();
-
-
-                }
-                if(!choose){
-                    $(this).parent().parent().parent().css("background-color","white");
-                    synccountnum();
-                    checkSubmit();
-
-                }
-            });
-
-
-            $(".numPlus").click(function(){
-                <!--点击+ 实现函数-->
-                    var good_id=$(this).attr("good_id");
-                    var num=$(".orderIteNumberSetting[good_id="+good_id+"]").attr("value");
-                    var inventory=$(".mm4 .inventory[good_id="+good_id+"]").val();
-                    var discountedPrice=$(".mm3 .mm3p2 span[good_id="+good_id+"]").text();
-                    num++;
-                    if(num>inventory)
-                        num=inventory;
-                    $(".orderIteNumberSetting[good_id="+good_id+"]").val(num);
-
-                    synchronizationPrice(good_id,discountedPrice,num);
-                    synccountnum();
-
-
-            });
-            $(".numMinus").click(function(){
-                <!--点击- 实现函数-->
-
-                var good_id=$(this).attr("good_id");
-                var num=$(".orderIteNumberSetting[good_id="+good_id+"]").attr("value");
-                var inventory=$(".mm4 .inventory[good_id="+good_id+"]").val();
-                var discountedPrice=$(".mm3 .mm3p2 span[good_id="+good_id+"]").text();
-                --num;
-                    if(num<1)
-                        num=1;
-                    $(".orderIteNumberSetting[good_id="+good_id+"]").val(num);
-                    synchronizationPrice(good_id,discountedPrice,num);
-                    synccountnum();
-
-
-
-            });
-            <!--输入数量事件-->
-
-            $(".orderIteNumberSetting").blur(function(){
-                    var good_id=$(this).attr("good_id");
-                    var num=$(".orderIteNumberSetting[good_id="+good_id+"]").attr("value");
-                    var inventory=$(".mm4 .inventory[good_id="+good_id+"]").val();
-                    var discountedPrice=$(".mm3 .mm3p2 span[good_id="+good_id+"]").text();
-
-                    if(isNaN(num)){
-                        alert("这不是个数字");
-                    }else{
-                        if(num<1){
-                            num=1;
-                        }
-//                            if(inventory<num){
-//                                num=inventory;
-//                            }
-                        $(".orderIteNumberSetting[good_id="+good_id+"]").val(num);
-                        synchronizationPrice(good_id,discountedPrice,num);
-                        synccountnum();
-                    }
-            });
-            $(".mm6 p").click(function(){
-            	var good_id=$(this).attr("good_id");
-            	var choose=confirm("确认把此商品从购物车移除？？？");
-            	console.log(good_id);
-            	if(choose==true){
-            		$.get('DeleteCartServlet','good_id='+good_id,function(result){
-            			if($.trim(result)=="true"){
-            				alert("删除成功");
-            			}else{
-            				alert("删除失败");
-            			}
-            		});
-            		
-            	}
-            	
-            });
-        });
-
-    </script>
+    <script src="js/main-top.js" type="text/javascript"></script>
+    <script src="js/shoppingCart.js" type="text/javascript"></script>
 </head>
 <body>
+<!-- 首页顶部top_up开始-->
+<div class="top_up">
+    <div class="top_up_left">
+        <ul>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up0.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text"><a href="main.jsp">首页</a></div>
+            </li>
+            <li>喵，欢迎来到天猫</li>
+            <li><div class="top_up_left_text"><a href="#">请登录</a></div></li>
+            <li><div class="top_up_left_text"><a href="#">免费注册</a></div></li>
+        </ul>
+    </div>
+    <div class="top_up_right">
+        <ul>
+            <li><div class="top_up_left_text"><a href="#">我的淘宝</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up1.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text"><a href="#">购物车0件</a></div>
+            </li>
+            <li><div class="top_up_left_text"><a href="#">收藏夹</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up2.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text"><a href="#">手机版</a></div>
+            </li>
+            <li><div class="top_up_left_text"><a href="https://www.taobao.com/">淘宝网</a></div></li>
+            <li><div class="top_up_left_text"><a href="#">商家支持</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up3.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text">网站导航</div></li>
+        </ul>
+    </div>
+</div>
+<!--首页顶部top_up结束-->
+<!--首页顶部top_middle开始-->
+<div class="top_middle_1">
+    <div class="top_middle_1_in_1"><image src="image/shouye/top/top_middle_1_1.png"></image></div>
+    <div class="top_middle_1_in_2">
+        <div class="top_middle_1_in_2_up">oppo手机官方旗舰店</div>
+        <div class="top_middle_1_in_2_under">
+            <image src="image/shouye/top/top_middle_1_2.png"></image>
+            <image src="image/shouye/top/top_middle_1_3.png"></image>
+        </div>
+    </div>
+    <div class="top_middle_1_in_3"><image src="image/shouye/top/top_middle_1_5.png"></image></div>
+    <div class="top_middle_1_in_4">
+        <div class="top_middle_1_in_4_up">手机逛</div>
+        <div class="top_middle_1_in_4_under"><image src="image/shouye/top/top_middle_1_4.png"></image></div>
+    </div>
+    <div class="top_middle_1_in_5">
+        <input type="text" class="sy_sousuo">
+        <div class="sy_button">搜索</div>
+    </div>
+</div>
+<div class="top_middle_2">
+    <div class="top_middle_2_in_1">
+        <a href="main.jsp">
+            <div class="top_middle_2_in_1_up">OPPO官方旗舰店</div>
+            <div class="top_middle_2_in_1_under">
+                <image src="image/shouye/top/top_middle_2_1.png"></image>
+            </div>
+        </a>
+    </div>
+    <div class="top_middle_2_in_2">
+        <a href="main.jsp">
+            <image src="image/shouye/top/top_middle_2_2.png"></image>
+        </a>
+    </div>
+    <div class="top_middle_2_in_3">
+        <a href="#?id=1">
+            <div class="top_middle_2_in_3_left">
+                <image src="image/shouye/top/top_middle_2_3.png"></image>
+            </div>
+            <div class="top_middle_2_in_3_right">
+                R11s新年版上市<br>
+                ￥3199<br>
+                火爆抢购中<br>
+                <image src="image/shouye/top/top_middle_2_4.png"></image>
+            </div>
+        </a>
+    </div>
+</div>
+<!--首页top_middle结束-->
+
+
 <!-- 中间开始-->
     <div class="middle">
         <div class="middle_head">
@@ -439,9 +123,9 @@
         List<Good> list=(List<Good>)request.getAttribute("cartlist");
         
         %>
-        <form action="Account.jsp" method="post">
+        <form action="FormCommitServlet" method="post">
         <%
-        	session.setAttribute("good_list", list);
+        	
          	for(int i=0;i<list.size();i++){
          		Good good=new Good();
          		good=list.get(i);
@@ -479,7 +163,7 @@
 
             </div>
             <div   class="mm5">￥<span good_id="<%=good.getGood_id()%>" class="goodspaytol"><%=(int)good.getDiscountedPrice() %></span>
-            	<input type="hidden" good_id="<%=good.getGood_id()%>" name="goodpaytol" value="<%=(int)good.getDiscountedPrice()%>">
+            	
             </div>
             <div  good_id="<%=good.getGood_id()%>"  class="mm6">
                 <p  good_id="<%=good.getGood_id()%>" user_id=<%=session.getAttribute("user_id") %>>删除</p>
@@ -498,6 +182,11 @@
             <div class="mf2">已选商品&nbsp;<span class="mf2_span1">0</span>&nbsp;件 &nbsp;&nbsp;&nbsp;合计（不含运费）:<span>￥<i>0</i></span>
             	<input class="mf2_input1" type="hidden" name="allcountnum" value="1">
                 <input class="mf2_input2" type="hidden" name="allcountpay" value="1">
+                <input class="mf2_input3" type="hidden" name="allcountGood_id" value="1">
+                <input class="mf2_input5" type="hidden" name="allcountGood_Num" value="1">
+                <input class="mf2_input4" type="hidden" name="user_id" value="<%=session.getAttribute("user_id")%>">
+                
+
             </div>
             
             <div class="mf3"> <input type="submit" value="结&nbsp;&nbsp;&nbsp;算" id="sub" ></div>
@@ -505,6 +194,146 @@
 
         </form>
         </div>
+        
+        <!--首页footer开始-->
+<div class="bottom_table">
+    <table cellspacing="30" cellpadding="0" border="0">
+        <tr>
+            <td>
+                <div class="bor 1">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu01.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">品质保证 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">品质护航购物无忧</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor 2">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu02.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">七天无理由退货 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">为你提供无忧售后保障</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor 3">
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu03.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">特殊服务体验 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">为你呈现不一样的服务</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+            <td>
+                <div class="bor4">
+
+
+                    <table cellspacing="0" cellpadding="0" border="0">
+                        <tr>
+                            <td><img src="image/shouye/footer/foot_fuwu04.png" alt=""/></td>
+                            <td>
+                                <lable class="foot_1" style="font-size: 15px;font-weight: bolder;">帮助中心 </lable>
+                                <br/>
+                                <span class="foot" style="font-size: 12px ;color: #B9B9B9">你的购物指南</span>
+
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div class="bottom_foot">
+        <div class="bottom_foot0"></div>
+        <div class="bottom_foot1">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>购物指南</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">免费注册 <br/>开通支付宝 <br/>支付宝充值</span>
+        </div>
+        <div class="bottom_foot2">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>天猫保障</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">发票保障 <br/>售后规则 <br/>缺货赔付</span>
+
+        </div>
+        <div class="bottom_foot3">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>支付方式</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">支付宝快捷支付 <br/>支付宝余额支付 <br/>支付宝钱包付款 <br/>货到付款 <br/>新人支付</span>
+        </div>
+        <div class="bottom_foot4">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>商家服务</lable>
+            <br/>
+            <span class="r1" style="font-size: 11px ;color: #7F7D7E">商家入驻 <br/>商家中心 <br/>天猫智库 <br/> 天猫规则 <br/>物流服务 <br/>喵言喵语 <br/>运营服务</span>
+        </div>
+        <div class="bottom_foot5">
+            <lable class="n1" style="font-weight:bolder;font-size: 15px;"><br/><br/>手机服务</lable>
+            <br/>
+            <img src="image/shouye/footer/erweima.png" alt=""/>
+        </div>
+    </div>
+
+
+</div>
+<div class="logo_tm">
+    <div class="logo_tm1">
+        <img src="image/shouye/footer/logo_tianmao.png" alt=""/>
+    </div>
+</div>
+<div class="last">
+    <table cellpadding="0" cellspacing="15" align="center">
+        <tr>
+            <td align="left" >
+                <div class="t1" >
+                    <br/>
+                    关于天猫&nbsp;帮助中心&nbsp;诚聘英才&nbsp;联系我们&nbsp;网站合作&nbsp;法律声明 &nbsp;廉政举报
+                    <br/>
+                    <br/>
+                    阿里巴巴集团|淘宝网|天猫|聚划算|全球速卖通|阿里巴巴国际交易市场|1688|阿里妈妈|阿里旅行|阿里云计算|YunOS|阿里通信|万网|高德|优酷|友盟|酷盘|虾米|天天动听|来往|钉 <br/>
+                    <br/>
+                    钉|11Main|支付宝
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="t2">
+                    增值电信业务经营许可证：浙B2-20110446 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;互联网医疗保健信息服务&nbsp;审核同意书&nbsp;浙卫网申[2012]6号
+                    <br/> <br/>
+                    互联网药品信息服务资质证书编号:浙-（经营性）-2012-0005 <br/><br/>
+                    @2003-2015  TMALLCOM版权所有
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="image/shouye/footer/renzheng_01.png" alt=""/>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="image/shouye/footer/renzheng_02.png" alt=""/>
+            </td>
+        </tr>
+    </table>
+</div>
+<!--首页footer结束-->
 
 
 </body>

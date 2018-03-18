@@ -113,4 +113,24 @@ public class ShopCartDao {
 		}
 		return flag;
 	}
+	public int selectCount(int good_id,int user_id){
+		int flag=1;
+		conn=DBUtils.getconn();
+		String sql="select count(*) from shopcart where good_id=? and user_id=?";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, good_id);
+			pstmt.setInt(2, user_id);
+			rs=pstmt.executeQuery();
+			while (rs.next()) {
+				flag=rs.getInt("count(*)");
+				
+			}
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		return flag;
+	}
+	
 }

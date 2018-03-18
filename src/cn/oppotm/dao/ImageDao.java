@@ -32,6 +32,24 @@ public class ImageDao {
 	}
 	   return list;
    }
+   public List<String> selectByGoodid2(int goodid){
+	   List<String> list=new ArrayList<String>();
+	   String sql="select image_name from image where good_id=? and type=2";
+	   conn=DBUtils.getconn();
+	   try {
+		   pstmt=conn.prepareStatement(sql);
+		   pstmt.setInt(1, goodid);
+		   rs=pstmt.executeQuery();
+		   while(rs.next()){
+			   list.add(rs.getString("image_name"));
+		   }
+	   } catch (SQLException e) {
+		   e.printStackTrace();
+	   }finally{
+		   DBUtils.closeAll(conn, pstmt, rs);
+	   }
+	   return list;
+   }
    /**
 	 * 获取商品的第一个图片
 	 * @param good_id
