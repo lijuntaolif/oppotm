@@ -36,6 +36,8 @@ public class CompletedFormDao {
 			flag=pstmt.executeUpdate();
 		} catch (SQLException e1) {
 			e1.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 
 		return flag;	

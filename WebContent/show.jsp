@@ -1,3 +1,4 @@
+<%@page import="cn.oppotm.dao.ShopCartDao"%>
 <%@page import="cn.oppotm.entity.Image"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="cn.oppotm.dao.ImageDao"%>
@@ -18,6 +19,7 @@
 <script type="text/javascript" src="js/show.js"></script>
 <script src="js/mF_fancy.js"></script>
 
+
 <script type="text/javascript">
 	myFocus.set({
 		id : 'picBox'
@@ -27,71 +29,81 @@
 <body>
     <div class="show">
 	<!-- 顶部开始-->
-	<!-- 首页顶部top_up开始-->
-	<div class="top_up">
-		<div class="top_up_left">
-			<ul>
-				<li>
-					<div class="top_up_left_image">
-						<image src="image/shouye/top/top_up0.png" width="25px"
-							height="25px"></image>
-					</div>
-					<div class="top_up_left_text">
-						<a href="main.jsp">首页</a>
-					</div>
-				</li>
-				<li>喵，欢迎来到天猫</li>
-				<li><div class="top_up_left_text">
-						<a href="#">请登录</a>
-					</div></li>
-				<li><div class="top_up_left_text">
-						<a href="#">免费注册</a>
-					</div></li>
-			</ul>
-		</div>
-		<div class="top_up_right">
-			<ul>
-				<li><div class="top_up_left_text">
-						<a href="#">我的淘宝</a>
-					</div></li>
-				<li>
-					<div class="top_up_left_image">
-						<image src="image/shouye/top/top_up1.png" width="25px"
-							height="25px"></image>
-					</div>
-					<div class="top_up_left_text">
-						<a href="#">购物车0件</a>
-					</div>
-				</li>
-				<li><div class="top_up_left_text">
-						<a href="#">收藏夹</a>
-					</div></li>
-				<li>
-					<div class="top_up_left_image">
-						<image src="image/shouye/top/top_up2.png" width="25px"
-							height="25px"></image>
-					</div>
-					<div class="top_up_left_text">
-						<a href="#">手机版</a>
-					</div>
-				</li>
-				<li><div class="top_up_left_text">
-						<a href="https://www.taobao.com/">淘宝网</a>
-					</div></li>
-				<li><div class="top_up_left_text">
-						<a href="#">商家支持</a>
-					</div></li>
-				<li>
-					<div class="top_up_left_image">
-						 <image src="image/shouye/top/top_up3.png"
-							width="25px" height="25px"></image>
-					</div>
-					<div class="top_up_left_text">网站导航</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-	<!--首页顶部top_up结束-->
+	<%!String name = null;%>
+<%
+	name=(String)session.getAttribute("name");
+
+%>
+<!-- 首页顶部top_up开始-->
+<div class="top_up">
+    <div class="top_up_left">
+        <ul>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up0.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text"><a href="main.jsp">首页</a></div>
+            </li>
+            <li>喵，欢迎来到天猫</li>
+            <li><div class="top_up_left_text">
+							<%
+								if (name == null) {
+							%>
+							<a href="login.jsp">请登录</a>
+							<%
+								} else {
+							%>
+							<a href="#"><%=name%></a>
+							<%
+								}
+							%>
+						</div></li>
+					<li><div class="top_up_left_text">
+							<%
+								if (name == null) {
+							%>
+							<a href="regist.jsp">免费注册</a>
+							<%
+								}
+							%>
+						</div></li>
+
+        </ul>
+    </div>
+    
+    <div class="top_up_right">
+        <ul>
+            <li><div class="top_up_left_text"><a href="#">我的淘宝</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up1.png" width="25px" height="25px"></image></div>
+                <%
+    	ShopCartDao shopCartDao=new ShopCartDao();
+                
+    	
+    	if(name!=null){
+    		int user_id=(int)session.getAttribute("user_id");
+    	
+    	int shopcount=shopCartDao.countByUser_id(user_id);
+    	%> <div class="top_up_left_text"><a href="ShowCart?user_id=<%=session.getAttribute("user_id") %>">购物车<%=shopcount %>件</a></div>
+        <%
+    	}else{
+    		%> <div class="top_up_left_text"><a href="login.jsp">购物车0件</a></div>
+            <%
+    	}
+    %>
+                   </li>
+            <li><div class="top_up_left_text"><a href="#">收藏夹</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up2.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text"><a href="#">手机版</a></div>
+            </li>
+            <li><div class="top_up_left_text"><a href="https://www.taobao.com/">淘宝网</a></div></li>
+            <li><div class="top_up_left_text"><a href="#">商家支持</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up3.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text">网站导航</div></li>
+        </ul>
+    </div>
+</div>
+<!--首页顶部top_up结束-->
 	<!--首页顶部top_middle开始-->
 	<div class="top_middle_1">
 		<div class="top_middle_1_in_1">
@@ -162,7 +174,7 @@
 	</div>
 	<div class="top_bottom_xf" id="top_bottom_xf">
 		<div class="top_bottom_xf_in_first">
-			<a href="#?id=1">
+			<a href="BuyServlet?good_id=1">
 				<div class="top_text">R11s星幕新年红</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_1.png" width="138px" height="140px"></image>
@@ -173,7 +185,7 @@
 			</a>
 		</div>
 		<div class="top_bottom_xf_in">
-			<a href="#?id=1">
+			<a href="BuyServlet?good_id=1">
 				<div class="top_text">R11s黑色/香槟色</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_2.png" width="138px" height="140px"></image>
@@ -184,7 +196,7 @@
 			</a>
 		</div>
 		<div class="top_bottom_xf_in">
-			<a href="#?id=1">
+			<a href="BuyServlet?good_id=1">
 				<div class="top_text">R11s红色</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_3.png" width="138px" height="140px"></image>
@@ -195,7 +207,7 @@
 			</a>
 		</div>
 		<div class="top_bottom_xf_in">
-			<a href="#?id=3">
+			<a href="BuyServlet?good_id=3">
 				<div class="top_text">R11s高配版</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_4.png" width="138px" height="140px"></image>
@@ -206,7 +218,7 @@
 			</a>
 		</div>
 		<div class="top_bottom_xf_in">
-			<a href="#?id=2">
+			<a href="BuyServlet?good_id=2">
 				<div class="top_text">R11s&nbsp;Plus</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_5.png" width="138px" height="140px"></image>
@@ -219,7 +231,7 @@
 	</div>
 	<div class="top_bottom_xf" id="top_bottom_xf1">
 		<div class="top_bottom_xf_in_second">
-			<a href="#?id=7">
+			<a href="BuyServlet?good_id=7">
 				<div class="top_text">OPPO&nbsp;A83</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_6.png" width="138px" height="140px"></image>
@@ -230,7 +242,7 @@
 			</a>
 		</div>
 		<div class="top_bottom_xf_in">
-			<a href="#?id=6">
+			<a href="BuyServlet?good_id=6">
 				<div class="top_text">OPPO&nbsp;A73</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_7.png" width="138px" height="140px"></image>
@@ -241,7 +253,7 @@
 			</a>
 		</div>
 		<div class="top_bottom_xf_in">
-			<a href="#?id=5">
+			<a href="BuyServlet?good_id=5">
 				<div class="top_text">OPPO&nbsp;A79</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_8.png" width="138px" height="140px"></image>
@@ -252,7 +264,7 @@
 			</a>
 		</div>
 		<div class="top_bottom_xf_in">
-			<a href="#?id=4">
+			<a href="BuyServlet?good_id=4">
 				<div class="top_text">OPPO&nbsp;A57</div>
 				<div class="img">
 					<image src="image/shouye/top/xf_9.png" width="138px" height="140px"></image>
@@ -451,7 +463,7 @@
 								<span><%=good.getOriginalPrice()%></span>
 							</div>
 							<div class="good_bottom_bottom">
-								<a href="#?id=<%=good.getGood_id()%>"><%=good.getIntroduce()%></a>
+								<a href="BuyServlet?good_id=<%=good.getGood_id()%>"><%=good.getIntroduce()%></a>
 							</div>
 						</div>
 					</div>

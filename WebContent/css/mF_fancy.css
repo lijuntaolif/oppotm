@@ -1,3 +1,4 @@
+﻿@CHARSET "UTF-8";
 /*=========mF_fancy ========*/
 .mF_fancy .pic{position:absolute;z-index:1;}
 .mF_fancy .pic ul{ position:absolute; top:0;left:0;width:x;height:100%; overflow:hidden;}

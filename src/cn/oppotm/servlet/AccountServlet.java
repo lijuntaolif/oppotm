@@ -8,8 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.oppotm.dao.CompletedFormDao;
+import cn.oppotm.dao.GoodDao;
 import cn.oppotm.dao.ShopCartDao;
 import cn.oppotm.entity.CompletedForm;
+import cn.oppotm.entity.Good;
 
 public class AccountServlet extends HttpServlet {
 	@Override
@@ -49,8 +51,13 @@ public class AccountServlet extends HttpServlet {
 			int flag=completedFormDao.addCompletedForm(completedForm);
 			if(flag==1){
 				ShopCartDao shopCartDao=new ShopCartDao();
+				GoodDao goodDao=new GoodDao();
+				Good good=goodDao.selectByGoodid(good_id);
+				int inventory=good.getInventory()-num;
+				int flag3=goodDao.updateInventory(inventory, good_id);
 				int flag2=shopCartDao.deletCart(good_id);
-				if(flag2==1){
+				
+				if(flag2==1&&flag3==1){
 					flags=true;
 				}
 			}

@@ -25,7 +25,7 @@ public class ShowCartServlet extends HttpServlet {
 		List<Good> list=new ArrayList<Good>();
 		list=shopCart.selectByUser_id(user_id);
 		req.setAttribute("cartlist", list);
-		req.getRequestDispatcher("ShoppingCart.jsp").forward(req, resp);
+		req.getRequestDispatcher("shoppingCart.jsp").forward(req, resp);
 		
 	}
 

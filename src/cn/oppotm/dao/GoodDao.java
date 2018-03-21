@@ -14,6 +14,11 @@ public class GoodDao {
 	private Connection conn=null;
 	private PreparedStatement pstmt=null;
 	private ResultSet rs=null;
+	/**
+	 * 查找所有商品
+	 * 
+	 * @return 商品列表
+	 */
 	public List<Good> selectAll(){
 		List<Good> list=new ArrayList<Good>();
 		conn=DBUtils.getconn();
@@ -34,6 +39,13 @@ public class GoodDao {
 		}
 		return list;
 	}
+	/**
+	 * 根据关键词和价格区间查询商品
+	 * @param key  关键字
+	 * @param low	最低价
+	 * @param high	最高价
+	 * @return 商品数组
+	 */
 	public List<Good> selectLikePrice(String key,int low,int high){
 		List<Good> list=new ArrayList<Good>();
 		conn=DBUtils.getconn();
@@ -58,6 +70,10 @@ public class GoodDao {
 		}
 		return list;
 	}
+	/**
+	 * 根据商品价格排序
+	 * @return 商品数组
+	 */
 	public List<Good> sortByPrice(){
 		List<Good> list=new ArrayList<Good>();
 		conn=DBUtils.getconn();
@@ -78,6 +94,11 @@ public class GoodDao {
 		}
 		return list;
 	}
+	/**
+	 * 根据名称查询商品
+	 * @param Name 商品名
+	 * @return 商品数组
+	 */
 	public List<Good> selectByName(String Name){
 		List<Good> list=new ArrayList<Good>();
 		conn=DBUtils.getconn();
@@ -99,6 +120,11 @@ public class GoodDao {
 		}
 		return list;
 	}
+	/**
+	 * 查询大于或等于该价格的商品
+	 * @param num 商品价格
+	 * @return 商品数组
+	 */
 	public List<Good> selectBigger(int num){
 		List<Good> list=new ArrayList<Good>();
 		conn=DBUtils.getconn();
@@ -120,6 +146,12 @@ public class GoodDao {
 		}
 		return list;
 	}
+	/**
+	 * 查找给定价格区间内的商品
+	 * @param low 最低价
+	 * @param high 最高价
+	 * @return 商品数组
+	 */
 	public List<Good> selectBetween(int low,int high){
 		List<Good> list=new ArrayList<Good>();
 		conn=DBUtils.getconn();
@@ -166,9 +198,29 @@ public class GoodDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 		
 		return good;
+	}
+	public int updateInventory(int inventory,int good_id){
+		int flag=0;
+		conn=DBUtils.getconn();
+		String sql="update  good set inventory=? where good_id=?";
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, inventory);
+			pstmt.setInt(2, good_id);
+			flag=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
+		}
+		
+		
+		return flag;
 	}
 
 }

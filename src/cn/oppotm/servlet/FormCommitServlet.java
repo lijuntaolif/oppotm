@@ -61,7 +61,7 @@ public class FormCommitServlet extends HttpServlet {
 		req.setAttribute("strPay", strPay);
 		
 		
-		req.getRequestDispatcher("Account.jsp").forward(req, resp);
+		req.getRequestDispatcher("account.jsp").forward(req, resp);
 		
 		
 	}

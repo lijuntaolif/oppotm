@@ -52,7 +52,7 @@ public class BuyNowServlet extends HttpServlet {
     	req.setAttribute("ufForms", ufForms);
     	req.setAttribute("strSum", snum);
     	req.setAttribute("strPay", goodpay);
-    	req.getRequestDispatcher("Account.jsp").forward(req, resp);
+    	req.getRequestDispatcher("account.jsp").forward(req, resp);
 	}
 
 }

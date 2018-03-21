@@ -1,3 +1,4 @@
+<%@page import="cn.oppotm.dao.ShopCartDao"%>
 <%@page import="cn.oppotm.entity.UnfinishedForm"%>
 <%@page import="cn.oppotm.dao.ImageDao"%>
 <%@page import="cn.oppotm.entity.Good"%>
@@ -15,13 +16,140 @@
     </style>
      <link rel="stylesheet" href="css/css-account.css" type="text/css">
   	 <link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
-  
+   	<link rel="stylesheet" href="css/css-main-top.css" type="text/css">
+
     <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
     <script src="js/account.js" type="text/javascript"></script>
-   	
+   	<script src="js/main-top.js" type="text/javascript"></script>
 </head>
 <body>
-	
+<%!String name = null;%>
+<%
+	name=(String)session.getAttribute("name");
+if(name==null){
+	response.sendRedirect("login.jsp");
+}
+
+%>
+<!-- 首页顶部top_up开始-->
+<div class="top_up">
+    <div class="top_up_left">
+        <ul>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up0.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text"><a href="main.jsp">首页</a></div>
+            </li>
+            <li>喵，欢迎来到天猫</li>
+            <li><div class="top_up_left_text">
+							<%
+								if (name == null) {
+							%>
+							<a href="login.jsp">请登录</a>
+							<%
+								} else {
+							%>
+							<a href="#"><%=name%></a>
+							<%
+								}
+							%>
+						</div></li>
+					<li><div class="top_up_left_text">
+							<%
+								if (name == null) {
+							%>
+							<a href="regist.jsp">免费注册</a>
+							<%
+								}
+							%>
+						</div></li>
+
+        </ul>
+    </div>
+    
+    <div class="top_up_right">
+        <ul>
+            <li><div class="top_up_left_text"><a href="#">我的淘宝</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up1.png" width="25px" height="25px"></image></div>
+                <%
+    	ShopCartDao shopCartDao=new ShopCartDao();
+                
+    	
+    	if(name!=null){
+    		int user_id=(int)session.getAttribute("user_id");
+    	
+    	int shopcount=shopCartDao.countByUser_id(user_id);
+    	%> <div class="top_up_left_text"><a href="ShowCart?user_id=<%=session.getAttribute("user_id") %>">购物车<%=shopcount %>件</a></div>
+        <%
+    	}else{
+    		%> <div class="top_up_left_text"><a href="login.jsp">购物车0件</a></div>
+            <%
+    	}
+    %>
+                   </li>
+            <li><div class="top_up_left_text"><a href="#">收藏夹</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up2.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text"><a href="#">手机版</a></div>
+            </li>
+            <li><div class="top_up_left_text"><a href="https://www.taobao.com/">淘宝网</a></div></li>
+            <li><div class="top_up_left_text"><a href="#">商家支持</a></div></li>
+            <li>
+                <div class="top_up_left_image"><image src="image/shouye/top/top_up3.png" width="25px" height="25px"></image></div>
+                <div class="top_up_left_text">网站导航</div></li>
+        </ul>
+    </div>
+</div>
+<!--首页顶部top_up结束-->
+<!--首页顶部top_middle开始-->
+<div class="top_middle_1">
+    <div class="top_middle_1_in_1"><image src="image/shouye/top/top_middle_1_1.png"></image></div>
+    <div class="top_middle_1_in_2">
+        <div class="top_middle_1_in_2_up">oppo手机官方旗舰店</div>
+        <div class="top_middle_1_in_2_under">
+            <image src="image/shouye/top/top_middle_1_2.png"></image>
+            <image src="image/shouye/top/top_middle_1_3.png"></image>
+        </div>
+    </div>
+    <div class="top_middle_1_in_3"><image src="image/shouye/top/top_middle_1_5.png"></image></div>
+    <div class="top_middle_1_in_4">
+        <div class="top_middle_1_in_4_up">手机逛</div>
+        <div class="top_middle_1_in_4_under"><image src="image/shouye/top/top_middle_1_4.png"></image></div>
+    </div>
+    <div class="top_middle_1_in_5">
+        <input type="text" class="sy_sousuo">
+        <div class="sy_button">搜索</div>
+    </div>
+</div>
+<div class="top_middle_2">
+    <div class="top_middle_2_in_1">
+        <a href="main.jsp">
+            <div class="top_middle_2_in_1_up">OPPO官方旗舰店</div>
+            <div class="top_middle_2_in_1_under">
+                <image src="image/shouye/top/top_middle_2_1.png"></image>
+            </div>
+        </a>
+    </div>
+    <div class="top_middle_2_in_2">
+        <a href="main.jsp">
+            <image src="image/shouye/top/top_middle_2_2.png"></image>
+        </a>
+    </div>
+    <div class="top_middle_2_in_3">
+        <a href="#?id=1">
+            <div class="top_middle_2_in_3_left">
+                <image src="image/shouye/top/top_middle_2_3.png"></image>
+            </div>
+            <div class="top_middle_2_in_3_right">
+                R11s新年版上市<br>
+                ￥3199<br>
+                火爆抢购中<br>
+                <image src="image/shouye/top/top_middle_2_4.png"></image>
+            </div>
+        </a>
+    </div>
+</div>
+<!--首页top_middle结束-->
 
 
     <div id="middle">

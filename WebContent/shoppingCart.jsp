@@ -1,35 +1,34 @@
 <%@page import="cn.oppotm.dao.ShopCartDao"%>
+<%@page import="cn.oppotm.dao.ImageDao"%>
+<%@page import="cn.oppotm.entity.Good"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>购物车</title>
    
-    <link rel="stylesheet" href="css/mF_fancy.css" type="text/css">
     <link rel="stylesheet" href="css/css-main-top.css" type="text/css">
-    <link rel="stylesheet" href="css/css-main-middle.css" type="text/css">
-    <link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
+    <link rel="stylesheet" href="css/css-shoppingCart.css" type="text/css">
     
-    <script type="text/javascript" src="js/jquery-1.8.3.js"></script>
-    <script src="js/myfocus-2.0.1.min.js"></script>
-    <script src="js/mF_fancy.js"></script>
+    <link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
+ 
+    <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
     <script src="js/main-top.js" type="text/javascript"></script>
-    <script src="js/main-middle.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        myFocus.set({
-            id:'picBox'
-        })
-    </script>
-
+    <script src="js/shoppingCart.js" type="text/javascript"></script>
 </head>
 <body>
 <%!String name = null;%>
-	<%
-	
-		name = (String) session.getAttribute("name");
-	%>
+<%
+	name=(String)session.getAttribute("name");
+if(name==null){
+	response.sendRedirect("login.jsp");
+}
+
+%>
 <!-- 首页顶部top_up开始-->
 <div class="top_up">
     <div class="top_up_left">
@@ -149,247 +148,99 @@
     </div>
 </div>
 <!--首页top_middle结束-->
-<!--首页top_bottom开始-->
-<div class="top_bottom">
-    <ul>
-        <li><a href="main.jsp">首页</a></li>
-        <li><a href="BuyServlet?good_id=1">R11s新年版上市</a></li>
-        <li><a href="BuyServlet?good_id=1">R11s旗舰热销</a></li>
-        <li id="top_bottom_li4"><a href="#">旗舰R系列</a></li>
-        <li id="top_bottom_li5"><a href="#">经典A系列</a></li>
-        <li><a href="ShowServlet">手机专区</a></li>
-        <li><a href="#">配件专区</a></li>
-        <li><a href="#">尊享服务</a></li>
-        <li><a href="#">品牌故事</a></li>
-        <li><a href="#">关注店铺</a></li>
-    </ul>
-</div>
-<div class="top_bottom_xf" id="top_bottom_xf">
-    <div class="top_bottom_xf_in_first">
-        <a href="BuyServlet?good_id=1">
-        <div class="top_text">R11s星幕新年红</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_1.png" width="138px" height="140px"></image>
+
+
+<!-- 中间开始-->
+    <div class="middle">
+        <div class="middle_head">
+            <div class="mh1">
+            		<input type="checkbox" name="choose" id="chooseAll1">
+            		<input type="hidden" name="good_num" autocomplete="off" value="0">
+            
+            			全选</div>
+            <div class="mh2">商品信息</div>
+            <div class="mh3">单价</div>
+            <div class="mh4">数量</div>
+            <div class="mh5">金额</div>
+            <div class="mh6">操作</div>
         </div>
-        <div class="bottom_text">
-            新年生肖设计&nbsp;全新定制UI<br>
-            ￥3199
-        </div>
-        </a>
-    </div>
-    <div class="top_bottom_xf_in">
-        <a href="BuyServlet?good_id=1">
-        <div class="top_text">R11s黑色/香槟色</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_2.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            2000万智能双摄<br>
-            ￥2999
-        </div>
-        </a>
-    </div>
-    <div class="top_bottom_xf_in">
-        <a href="BuyServlet?good_id=1">
-        <div class="top_text">R11s红色</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_3.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            星幕屏惊艳夺目<br>
-            ￥3199
-        </div>
-        </a>
-    </div>
-    <div class="top_bottom_xf_in">
-        <a href="BuyServlet?good_id=3">
-        <div class="top_text">R11s高配版</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_4.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            6GB+128GB&nbsp;内存升级<br>
-            ￥3599
-        </div>
-        </a>
-    </div>
-    <div class="top_bottom_xf_in">
-        <a href="BuyServlet?good_id=2">
-        <div class="top_text">R11s&nbsp;Plus</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_5.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            更大的全面屏拍照手机<br>
-            ￥3699
-        </div>
-        </a>
-    </div>
-</div>
-<div class="top_bottom_xf" id="top_bottom_xf1">
-    <div class="top_bottom_xf_in_second">
-        <a href="BuyServlet?good_id=7">
-        <div class="top_text">OPPO&nbsp;A83</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_6.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            大屏全面屏<br>
-            ￥1399
-        </div>
-        </a>
-    </div>
-    <div class="top_bottom_xf_in">
-        <a href="BuyServlet?good_id=6">
-        <div class="top_text">OPPO&nbsp;A73</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_7.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            更清晰的全面屏<br>
-            ￥1699
-        </div>
-        </a>
-    </div>
-    <div class="top_bottom_xf_in">
-        <a href="BuyServlet?good_id=5">
-        <div class="top_text">OPPO&nbsp;A79</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_8.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            1月1日起直降200元<br>
-            ￥2199
-        </div>
-        </a>
-    </div>
-    <div class="top_bottom_xf_in">
-        <a href="BuyServlet?good_id=4">
-        <div class="top_text">OPPO&nbsp;A57</div>
-        <div class="img">
-            <image src="image/shouye/top/xf_9.png" width="138px" height="140px"></image>
-        </div>
-        <div class="bottom_text">
-            美颜自拍<br>
-            ￥1299
-        </div>
-        </a>
-    </div>
-</div>
-<!--首页top_bottom结束-->
-<!--首页middle开始-->
-<div class="middle">
-    <div class="middle_in1">
-        <!-- 焦点图盒子 -->
-        <div id="picBox" class="ad">
-            <!-- 载入中的Loading图片(可选) -->
-            <div class="loading">
-                <img src="image/shouye/lunbo/loading.gif" alt="请稍候..." />
+        <%
+        List<Good> list=(List<Good>)request.getAttribute("cartlist");
+        
+        %>
+        <form action="FormCommitServlet" method="post">
+        <%
+        	
+         	for(int i=0;i<list.size();i++){
+         		Good good=new Good();
+         		good=list.get(i);
+         	 	ImageDao imDao=new ImageDao();
+         	 	
+         		
+         		%>
+         			 <div class="middle_middle">
+            <div class="mm1">
+                <div class="mm1_input"><input type="checkbox" name="choose" name2="choose"  good_id="<%=good.getGood_id()%>" value="<%=good.getGood_id()%>"></div>
+                <div class="mm1_img">
+                    <img src="<%=imDao.getFirstImage(good.getGood_id()) %>" width="120px" height="90px">
+                </div>
             </div>
-            <!-- 内容列表 -->
-            <div class="pic">
-                <ul>
-                    <li>
-                        <a href="BuyServlet?good_id=1">
-                            <img src="image/shouye/lunbo/lunbo.jpg"  width="1300px" height="500px"/>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="BuyServlet?good_id=7">
-                            <img src="image/shouye/lunbo/lunbo (2).jpg"  width="1300px" height="500px"/>
-                        </a>
-                    </li>
-                    <!-- 你可以根据需要添加更多的列 -->
-                </ul>
+            <div class="mm2">
+                <div class="mm2_a"><a href="BuyServlet?good_id=<%=good.getGood_id()%>"><%=good.getIntroduce() %></a></div>
+                <div class="mm2_img">
+                    <img src="image/shopcart/gwbiao1.png" width="20px" height="20px" alt="">
+                    <img src="image/shopcart/gwbiao2.png" width="20px" height="20px" alt="">
+                    <img src="image/shopcart/gwbiao3.png" width="20px" height="20px" alt="">
+
+                </div>
+
             </div>
+            <div class="mm3">
+                <p good_id="<%=good.getGood_id()%>" class="mm3p1">￥<%=good.getOriginalPrice() %></p>
+                <p  class="mm3p2">￥<span  good_id="<%=good.getGood_id()%>"><%=good.getDiscountedPrice() %></span></p>
+            </div>
+            <div class="mm4">
+                <input type="hidden" good_id="<%=good.getGood_id()%>" name="inventory" class="inventory" value="<%=good.getInventory()%>"/>
+                <span class="DiscountedPrice" hidden><%=good.getDiscountedPrice() %></span>
+                <a href="#nowhere" good_id="<%=good.getGood_id()%>" class="numMinus">-</a>
+                <input good_id="<%=good.getGood_id()%>" class="orderIteNumberSetting" name="good_num" autocomplete="off" value="1">
+                <a href="#nowhere" good_id="<%=good.getGood_id()%>" class="numPlus" stock="90">+</a>
+
+            </div>
+            <div   class="mm5">￥<span good_id="<%=good.getGood_id()%>" class="goodspaytol"><%=(int)good.getDiscountedPrice() %></span>
+            	
+            </div>
+            <div  good_id="<%=good.getGood_id()%>"  class="mm6">
+                <p  good_id="<%=good.getGood_id()%>" user_id=<%=session.getAttribute("user_id") %>>删除</p>
+            </div>
+
         </div>
-    </div>
-    <div class="middle_in2">
-        <div class="middle_in2_ck"></div>
-        <div class="middle_in2_up">
-            <span>新年爆款推荐</span>
+         		<%	
+         	}
+        
+        %>
+ 
+        <div class="middle_footer">
+            <div class="mf1"><input type="checkbox" name="choose" id="chooseAll2" >
+            
+            <input type="hidden" name="good_num" autocomplete="off" value="0">全选</div>
+            <div class="mf2">已选商品&nbsp;<span class="mf2_span1">0</span>&nbsp;件 &nbsp;&nbsp;&nbsp;合计（不含运费）:<span>￥<i>0</i></span>
+            	<input class="mf2_input1" type="hidden" name="allcountnum" value="1">
+                <input class="mf2_input2" type="hidden" name="allcountpay" value="1">
+                <input class="mf2_input3" type="hidden" name="allcountGood_id" value="1">
+                <input class="mf2_input5" type="hidden" name="allcountGood_Num" value="1">
+                <input class="mf2_input4" type="hidden" name="user_id" value="<%=session.getAttribute("user_id")%>">
+                
+
+            </div>
+            
+            <div class="mf3"> <input type="submit" value="结&nbsp;&nbsp;&nbsp;算" id="sub" ></div>
         </div>
-        <div class="middle_in2_under">
-            <div class="middle_in2_under_1">
-                <a href="BuyServlet?good_id=1"><image src="image/shouye/middle/middle_2_1.png"></image></a>
-            </div>
-            <div class="middle_in2_under_2">
-                <a href="BuyServlet?good_id=1"><image src="image/shouye/middle/middle_2_2.png"></image></a>
-            </div>
-            <div class="middle_in2_under_3">
-                <a href="BuyServlet?good_id=1"><image src="image/shouye/middle/middle_2_3.png"></image></a>
-            </div>
-            <div class="middle_in2_under_4">
-                <a href="BuyServlet?good_id=7"><image src="image/shouye/middle/middle_2_4.png"></image></a>
-            </div>
+
+        </form>
         </div>
-    </div>
-    <div class="middle_in3">
-        <div class="middle_in3_ck"></div>
-        <div class="middle_in3_up">
-            <span>新年臻选暖冬好礼</span>
-        </div>
-        <div class="middle_in3_under">
-            <a href="BuyServlet?good_id=1"><image src="image/shouye/middle/middle_3_1.png"></image></a>
-        </div>
-    </div>
-    <div class="middle_in4">
-        <div class="middle_in4_ck"></div>
-        <div class="middle_in4_up">
-            <span>拍照更好的全面屏手机</span>
-        </div>
-        <div class="middle_in4_under">
-            <div class="middle_in4_under_1">
-                <a href="BuyServlet?good_id=1"><image src="image/shouye/middle/middle_4_1.png"></image></a>
-            </div>
-            <div class="middle_in4_under_2">
-                <a href="BuyServlet?good_id=1"><image src="image/shouye/middle/middle_4_2.png"></image></a>
-            </div>
-            <div class="middle_in4_under_3">
-                <a href="BuyServlet?good_id=2"><image src="image/shouye/middle/middle_4_3.png"></image></a>
-            </div>
-        </div>
-    </div>
-    <div class="middle_in5">
-        <div class="middle_in5_ck"></div>
-        <div class="middle_in5_up">
-            <span>全面屏轻旗舰家族</span>
-        </div>
-        <div class="middle_in5_under">
-            <div class="middle_in5_under_1">
-                <a href="BuyServlet?good_id=5"><image src="image/shouye/middle/middle_5_1.png"></image></a>
-            </div>
-            <div class="middle_in5_under_2">
-                <a href="BuyServlet?good_id=6"><image src="image/shouye/middle/middle_5_2.png"></image></a>
-            </div>
-            <div class="middle_in5_under_3">
-                <a href="BuyServlet?good_id=7"><image src="image/shouye/middle/middle_5_3.png"></image></a>
-            </div>
-        </div>
-    </div>
-    <div class="middle_in6">
-        <div class="middle_in6_ck"></div>
-        <div class="middle_in6_up">
-            <span>自然美颜&nbsp呈现清晰</span>
-        </div>
-        <div class="middle_in6_under">
-            <div class="middle_in6_under_left">
-                <a href="#"><image src="image/shouye/middle/middle_6_1.png"></image></a>
-            </div>
-            <div class="middle_in6_under_right">
-                <a href="BuyServlet?good_id=4"><image src="image/shouye/middle/middle_6_2.png"></image></a>
-            </div>
-        </div>
-    </div>
-    <div class="middle_in7">
-        <div class="middle_in7_ck"></div>
-        <div class="middle_in7_in">
-            <image src="image/shouye/middle/middle_7_1.png"></image>
-        </div>
-    </div>
-</div>
-<!--首页middle结束-->
-<!--首页footer开始-->
+        
+        <!--首页footer开始-->
 <div class="bottom_table">
     <table cellspacing="30" cellpadding="0" border="0">
         <tr>
@@ -528,5 +379,8 @@
     </table>
 </div>
 <!--首页footer结束-->
+
+
 </body>
+
 </html>

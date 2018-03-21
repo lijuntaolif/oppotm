@@ -43,6 +43,8 @@ public class ShopCartDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 		
 		
@@ -68,6 +70,8 @@ public class ShopCartDao {
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 	
 		return num;
@@ -90,6 +94,8 @@ public class ShopCartDao {
 			flag=pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 		
 		return flag;
@@ -110,6 +116,8 @@ public class ShopCartDao {
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 		return flag;
 	}
@@ -129,6 +137,8 @@ public class ShopCartDao {
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 		return flag;
 	}

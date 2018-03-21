@@ -1,25 +1,33 @@
-<%@page import="cn.oppotm.dao.ImageDao"%>
+<%@page import="cn.oppotm.dao.ShopCartDao"%>
+<%@page import="cn.oppotm.dao.GoodDao"%>
 <%@page import="cn.oppotm.entity.Good"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>购物车</title>
-   
-    <link rel="stylesheet" href="css/css-main-top.css" type="text/css">
-    <link rel="stylesheet" href="css/css-shoppingCart.css" type="text/css">
-    
-    <link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>商品购买</title>
+
+
+	<link href="css/css-detail.css" rel="stylesheet">
  
-    <script src="js/jquery-1.8.3.js" type="text/javascript"></script>
-    <script src="js/main-top.js" type="text/javascript"></script>
-    <script src="js/shoppingCart.js" type="text/javascript"></script>
+  	<link rel="stylesheet" href="css/css-main-footer.css" type="text/css">
+   	<link rel="stylesheet" href="css/css-main-top.css" type="text/css">
+
+<script src="js/jquery-1.8.3.js"></script>
+<script src="js/detail.js"></script>
+<script src="js/main-top.js" type="text/javascript"></script>
 </head>
 <body>
+
+<%!String name = null;%>
+<%
+	name=(String)session.getAttribute("name");
+
+
+%>
 <!-- 首页顶部top_up开始-->
 <div class="top_up">
     <div class="top_up_left">
@@ -29,17 +37,53 @@
                 <div class="top_up_left_text"><a href="main.jsp">首页</a></div>
             </li>
             <li>喵，欢迎来到天猫</li>
-            <li><div class="top_up_left_text"><a href="#">请登录</a></div></li>
-            <li><div class="top_up_left_text"><a href="#">免费注册</a></div></li>
+            <li><div class="top_up_left_text">
+							<%
+								if (name == null) {
+							%>
+							<a href="login.jsp">请登录</a>
+							<%
+								} else {
+							%>
+							<a href="#"><%=name%></a>
+							<%
+								}
+							%>
+						</div></li>
+					<li><div class="top_up_left_text">
+							<%
+								if (name == null) {
+							%>
+							<a href="regist.jsp">免费注册</a>
+							<%
+								}
+							%>
+						</div></li>
+
         </ul>
     </div>
+    
     <div class="top_up_right">
         <ul>
             <li><div class="top_up_left_text"><a href="#">我的淘宝</a></div></li>
             <li>
                 <div class="top_up_left_image"><image src="image/shouye/top/top_up1.png" width="25px" height="25px"></image></div>
-                <div class="top_up_left_text"><a href="#">购物车0件</a></div>
-            </li>
+                <%
+    	ShopCartDao shopCartDao=new ShopCartDao();
+                
+    	
+    	if(name!=null){
+    		int user_id=(int)session.getAttribute("user_id");
+    	
+    	int shopcount=shopCartDao.countByUser_id(user_id);
+    	%> <div class="top_up_left_text"><a href="ShowCart?user_id=<%=session.getAttribute("user_id") %>">购物车<%=shopcount %>件</a></div>
+        <%
+    	}else{
+    		%> <div class="top_up_left_text"><a href="login.jsp">购物车0件</a></div>
+            <%
+    	}
+    %>
+                   </li>
             <li><div class="top_up_left_text"><a href="#">收藏夹</a></div></li>
             <li>
                 <div class="top_up_left_image"><image src="image/shouye/top/top_up2.png" width="25px" height="25px"></image></div>
@@ -105,97 +149,162 @@
 <!--首页top_middle结束-->
 
 
-<!-- 中间开始-->
-    <div class="middle">
-        <div class="middle_head">
-            <div class="mh1">
-            		<input type="checkbox" name="choose" id="chooseAll1">
-            		<input type="hidden" name="good_num" autocomplete="off" value="0">
-            
-            			全选</div>
-            <div class="mh2">商品信息</div>
-            <div class="mh3">单价</div>
-            <div class="mh4">数量</div>
-            <div class="mh5">金额</div>
-            <div class="mh6">操作</div>
-        </div>
-        <%
-        List<Good> list=(List<Good>)request.getAttribute("cartlist");
-        
-        %>
-        <form action="FormCommitServlet" method="post">
-        <%
-        	
-         	for(int i=0;i<list.size();i++){
-         		Good good=new Good();
-         		good=list.get(i);
-         	 	ImageDao imDao=new ImageDao();
-         	 	
-         		
-         		%>
-         			 <div class="middle_middle">
-            <div class="mm1">
-                <div class="mm1_input"><input type="checkbox" name="choose" name2="choose"  good_id="<%=good.getGood_id()%>" value="<%=good.getGood_id()%>"></div>
-                <div class="mm1_img">
-                    <img src="<%=imDao.getFirstImage(good.getGood_id()) %>" width="120px" height="90px">
-                </div>
-            </div>
-            <div class="mm2">
-                <div class="mm2_a"><a href="#"><%=good.getIntroduce() %></a></div>
-                <div class="mm2_img">
-                    <img src="image/shopcart/gwbiao1.png" width="20px" height="20px" alt="">
-                    <img src="image/shopcart/gwbiao2.png" width="20px" height="20px" alt="">
-                    <img src="image/shopcart/gwbiao3.png" width="20px" height="20px" alt="">
+	<!-- 接收参数 -->
+	<%
+		
+		List<String> url_list = (List<String>) request.getAttribute("urllist");
+		List<String> url_list2 = (List<String>) request.getAttribute("urllist2");
+		Good good=(Good)request.getAttribute("good");
+	
+				
+	%>
 
-                </div>
 
-            </div>
-            <div class="mm3">
-                <p good_id="<%=good.getGood_id()%>" class="mm3p1">￥<%=good.getOriginalPrice() %></p>
-                <p  class="mm3p2">￥<span  good_id="<%=good.getGood_id()%>"><%=good.getDiscountedPrice() %></span></p>
-            </div>
-            <div class="mm4">
-                <input type="hidden" good_id="<%=good.getGood_id()%>" name="inventory" class="inventory" value="<%=good.getInventory()%>"/>
-                <span class="DiscountedPrice" hidden><%=good.getDiscountedPrice() %></span>
-                <a href="#nowhere" good_id="<%=good.getGood_id()%>" class="numMinus">-</a>
-                <input good_id="<%=good.getGood_id()%>" class="orderIteNumberSetting" name="good_num" autocomplete="off" value="1">
-                <a href="#nowhere" good_id="<%=good.getGood_id()%>" class="numPlus" stock="90">+</a>
+	<!--图片和信息主体-->
+	
+	<div class="imgAndInfo">
+		<!--图片部分-->
+		<div class="imgInimgAndInfo">
 
-            </div>
-            <div   class="mm5">￥<span good_id="<%=good.getGood_id()%>" class="goodspaytol"><%=(int)good.getDiscountedPrice() %></span>
-            	
-            </div>
-            <div  good_id="<%=good.getGood_id()%>"  class="mm6">
-                <p  good_id="<%=good.getGood_id()%>" user_id=<%=session.getAttribute("user_id") %>>删除</p>
-            </div>
 
-        </div>
-         		<%	
-         	}
-        
-        %>
- 
-        <div class="middle_footer">
-            <div class="mf1"><input type="checkbox" name="choose" id="chooseAll2" >
-            
-            <input type="hidden" name="good_num" autocomplete="off" value="0">全选</div>
-            <div class="mf2">已选商品&nbsp;<span class="mf2_span1">0</span>&nbsp;件 &nbsp;&nbsp;&nbsp;合计（不含运费）:<span>￥<i>0</i></span>
-            	<input class="mf2_input1" type="hidden" name="allcountnum" value="1">
-                <input class="mf2_input2" type="hidden" name="allcountpay" value="1">
-                <input class="mf2_input3" type="hidden" name="allcountGood_id" value="1">
-                <input class="mf2_input5" type="hidden" name="allcountGood_Num" value="1">
-                <input class="mf2_input4" type="hidden" name="user_id" value="<%=session.getAttribute("user_id")%>">
-                
+			<!-- 大图部分-->
+			<img src="<%=url_list.get(1)%>" class="bigImg">
+			<%
+				for (int i = 0; i < url_list.size(); i++) {
+			%>
+			<!--小图部分-->
+			<div class="smallImageDiv">
+				<img src="<%=url_list.get(i)%>" bigImageURL="<%=url_list.get(i)%>"
+					class="smallImage">
+					
+				<%
+					}
+				%>
+			</div>
 
-            </div>
-            
-            <div class="mf3"> <input type="submit" value="结&nbsp;&nbsp;&nbsp;算" id="sub" ></div>
-        </div>
+			<div class="img4load hidden"></div>
+		</div>
+		<!--信息部分-->
+		<div class="infoInimgAndInfo">
+			<!--商品标题-->
+			<div class="productTitle"><%=good.getIntroduce()%></div>
 
-        </form>
-        </div>
-        
-        <!--首页footer开始-->
+			<!--商品价格-->
+			<div class="productPrice">
+				<div class="juhuasuan">
+					<span class="juhuasuanBig">聚划算</span> <span>此商品即将参加聚划算，<span
+						class="juhuasuanTime">1天19小时</span>后开始，
+					</span>
+				</div>
+				<div class="productPriceDiv">
+					<!-- 购物券-->
+					<div class="gouwujuanDiv">
+						<img height="16px" src="image/detail/gouwujuan.png"> <span>
+							全天猫实物商品通用</span>
+					</div>
+					<!-- 原价格-->
+					<div class="originalDiv">
+						<span class="originalPriceDesc">价格</span> <span
+							class="originalPriceYuan">¥</span> <span class="originalPrice">
+							<%=good.getOriginalPrice() %></span>
+					</div>
+					<!-- 促销价-->
+					<div class="promotionDiv">
+						<span class="promotionPriceDesc">促销价 </span> <span
+							class="promotionPriceYuan">¥</span> <span class="promotionPrice">
+							<%=good.getDiscountedPrice() %>
+							</span>
+					</div>
+				</div>
+			</div>
+			<!--购买数量-->
+			
+			<div class="productNumber">
+				<span>数量</span> <span> <span class="productNumberSettingSpan">
+						<input class="productNumberSetting" id= "productNumberSetting" type="text" value="1">
+						
+			
+				</span> <span class="arrow"> <a href="#nowhere"
+						class="increaseNumber"> <span class="updown"> <img id="increaseNumber" onclick="changenum()"
+								src="image/detail/increase.png">
+						</span>
+					</a> <span class="updownMiddle"> </span> <a href="#nowhere"
+						class="decreaseNumber"> <span class="updown"> <img
+								src="image/detail/decrease.png">
+						</span>
+					</a>
+
+				</span> 件
+				</span> <span>库存<%=good.getInventory() %>件</span><input class="inventory" type="hidden" value=<%=good.getInventory() %>>
+			</div>
+
+			<!--购买/加入购物车-->
+			<div class="buyDiv">
+		
+				<div class="buyLink" >
+				 <form action="<%if(name==null){
+					 %>login.jsp<%
+				 }else{ %>BuyNowServlet<%}
+					 %>" method="get">
+				 	<input type="submit" id="buyButton" value="立即购买">
+				 	<input type="hidden" id="user_id" name="userid" value="<%=session.getAttribute("user_id")%>">
+				 	<input type="hidden" id="good_id" name="goodid" value="<%=good.getGood_id()%>">
+				 	
+				 	<input type="hidden" id="good_num" name="goodnum" value="1">
+				 	
+				 	<input type="hidden" id="good_pay" name="goodpay" value="<%=good.getDiscountedPrice()%>">
+				 	<input type="hidden" id="good_price" name="goodprice" value="<%=good.getDiscountedPrice()%>">
+				 	
+				 	
+				 </form>
+				 </div>
+					<div class="addCartLink">
+					<%
+						if(name==null){
+							%>
+							<button id="addCartButton">
+							<a href="login.jsp">
+						<span class="glyphicon glyphicon-shopping-cart"></span>加入购物车
+					</a>
+					</button>
+							<%
+						}else{
+							%>
+							<button id="addCartButton">
+						<span class="glyphicon glyphicon-shopping-cart"></span>加入购物车
+					</button>
+							<%
+						}
+					
+					%>
+					
+					
+					</div>
+				
+			</div>
+		</div>
+	</div>
+	
+	<!--底下详情部分-->
+<div class="underdetail">
+<div class="good_detail">
+商品详情
+</div>
+
+			<%
+				for (int i = 0; i < url_list2.size(); i++) {
+			%>
+		
+			
+				<img class="underdetailimg"  src="<%=url_list2.get(i)%>" >
+					
+				<%
+					}
+				%>
+</div>
+	
+
+<!--首页footer开始-->
 <div class="bottom_table">
     <table cellspacing="30" cellpadding="0" border="0">
         <tr>
@@ -337,5 +446,4 @@
 
 
 </body>
-
 </html>

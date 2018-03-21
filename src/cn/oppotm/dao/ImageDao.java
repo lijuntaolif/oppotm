@@ -14,6 +14,11 @@ public class ImageDao {
    private Connection conn=null;
    private PreparedStatement pstmt=null;
    private ResultSet rs=null;
+   /**
+    * 根据商品id查询相应手机图片的路径
+    * @param goodid 商品id
+    * @return 手机图片路径数组
+    */
    public List<String> selectByGoodid(int goodid){
 	   List<String> list=new ArrayList<String>();
 	   String sql="select image_name from image where good_id=? and type=1";
@@ -32,6 +37,11 @@ public class ImageDao {
 	}
 	   return list;
    }
+   /**
+    * 根据商品id查询相应介绍图片的路径
+    * @param goodid 商品id
+    * @return 商品介绍图片的路径
+    */
    public List<String> selectByGoodid2(int goodid){
 	   List<String> list=new ArrayList<String>();
 	   String sql="select image_name from image where good_id=? and type=2";
@@ -70,6 +80,8 @@ public class ImageDao {
 		} catch (SQLException e) {
 		
 			e.printStackTrace();
+		}finally {
+			DBUtils.closeAll(conn, pstmt, rs);
 		}
 		return url;
 	}

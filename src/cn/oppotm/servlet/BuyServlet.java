@@ -24,7 +24,7 @@ public class BuyServlet extends HttpServlet {
     	List<String> ilist2=(List<String>)imageDao.selectByGoodid2(good_id);
     	req.setAttribute("urllist", ilist);
     	req.setAttribute("urllist2", ilist2);
-    	req.getRequestDispatcher("Detail.jsp").forward(req, resp);
+    	req.getRequestDispatcher("detail.jsp").forward(req, resp);
 	}
 
 	
