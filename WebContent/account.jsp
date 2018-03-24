@@ -214,7 +214,7 @@ if(name==null){
                         </div>
                     </div>
                     <div class="mf_mm2">
-                        <div class="mf_mm2_a"><a href="#"><%=uForm.getIntroduce()%></a>
+                        <div class="mf_mm2_a"><a href="BuyServlet?good_id=<%=uForm.getGood_id()%>"><%=uForm.getIntroduce()%></a>
                         <input type="hidden" name="good_id" value="<%=uForm.getGood_id()%>">
                         </div>
                         <div class="mf_mm2_img">
